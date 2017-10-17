@@ -1,12 +1,11 @@
 require('dotenv').config({silent: true});
-
 const webpack = require('webpack');
 const path = require('path');
 const pkg = require(__dirname + '/package.json');
 
 const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 
-const siteJs = ['./scripts/site.js']
+const siteJs = [path.resolve(__dirname, 'src', 'scripts', 'site.js')];
 
 const config = {
   devtool: IS_PRODUCTION ? false : 'source-map',
