@@ -23,7 +23,10 @@
   },
   "devDependencies": {
     "@squarespace/toolbelt": "^0.7.5",
+    "css-loader": "^0.28.7",
     "dotenv": "^2.0.0",
+    "extract-text-webpack-plugin": "^3.0.1",
+    "style-loader": "^0.19.0",
     "webpack": "^3.7.1"
   }
 }
