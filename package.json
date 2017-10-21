@@ -10,8 +10,8 @@
     "watch": "squarespace assemble --watch & webpack --watch --hide-modules",
     "server": "squarespace runserver",
     "authserver": "squarespace runserver --auth -A",
-    "start": "squarespace setup && (npm run watch & npm run server)",
-    "startAuth": "squarespace setup && (npm run watch & npm run authserver)",
+    "startNoAuth": "squarespace setup && (npm run watch & npm run server)",
+    "start": "squarespace setup && (npm run watch & npm run authserver)",
     "deploy": "cd build && git push --force taylor-ho-28z3.squarespace.com master"
   },
   "repository": {
