@@ -28,7 +28,7 @@ const config = {
   },
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: '[name].js'
+    filename: './scripts/site-bundle.js'
   },
   plugins: [
     new webpack.DefinePlugin({
