@@ -1,0 +1,34 @@
+{.section collection}
+  <h4>{title}</h4>
+{.end}
+
+<ul>
+  {.repeated section items}
+    <li><code><pre>{@|json-pretty}</pre></code></li>
+  {.end}
+</ul>
+
+{##BEGIN}
+{.section collection}
+  {title}
+  <ol>
+    {.repeated section items}
+      <li>{@|json-pretty}</li>
+    {.end}
+  </ol>
+  <!-- <squarespace:category collection="{urlId}">
+    {.if categories}
+      <div class="category-wrapper">
+        <span class="category">
+          {.repeated section categories}
+            <p>{name}</p>
+            {fullUrl}
+          {.end}
+        </span>
+      </div>
+    {.end}
+  </squarespace:category> -->
+{.end}
+
+
+{END##}
