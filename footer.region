@@ -1,0 +1,9 @@
+  <footer>
+    <squarespace:block-field id="footer-blocks" columns="12" />
+  </footer>
+
+  <script type="text/javascript" src="/scripts/site-bundle.js"></script>
+
+  {squarespace-footers}
+
+</body>
