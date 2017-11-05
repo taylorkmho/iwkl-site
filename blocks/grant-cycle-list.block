@@ -1,0 +1,8 @@
+{.if items}
+  <h4>{.section collection}{title}{.end}</h4>
+  <ol>
+    {.repeated section items}
+      <li><a href="{fullUrl}">{title}</a></li>
+    {.end}
+  </ol>
+{.end}

@@ -4,6 +4,9 @@
     - Generate map points using array
 }
 
+<squarespace:block-field id="intro" columns="1" lock-layout="true" />
+
+<p>[ MAP ]</p>
 
 {#
   List solution:
@@ -12,39 +15,34 @@
       out and we can expand on the website.
 }
 
-
 <squarespace:query collection="grant-cycle-1">
-  <h4>{.section collection}{title}{.end}</h4>
-  <ol>
-    {.repeated section items}
-      <li><a href="{fullUrl}">{title}</a></li>
-    {.end}
-  </ol>
+  {@|apply grant-cycle-list.block}
 </squarespace:query>
 
 <squarespace:query collection="grant-cycle-2">
-  <h4>{.section collection}{title}{.end}</h4>
-  <ol>
-    {.repeated section items}
-      <li><a href="{fullUrl}">{title}</a></li>
-    {.end}
-  </ol>
+  {@|apply grant-cycle-list.block}
 </squarespace:query>
 
 <squarespace:query collection="grant-cycle-3">
-  <h4>{.section collection}{title}{.end}</h4>
-  <ol>
-    {.repeated section items}
-      <li><a href="{fullUrl}">{title}</a></li>
-    {.end}
-  </ol>
+  {@|apply grant-cycle-list.block}
 </squarespace:query>
 
 <squarespace:query collection="grant-cycle-4">
-  <h4>{.section collection}{title}{.end}</h4>
-  <ol>
-    {.repeated section items}
-      <li><a href="{fullUrl}">{title}</a></li>
-    {.end}
-  </ol>
+  {@|apply grant-cycle-list.block}
+</squarespace:query>
+
+<squarespace:query collection="grant-cycle-5">
+  {@|apply grant-cycle-list.block}
+</squarespace:query>
+
+<squarespace:query collection="grant-cycle-6">
+  {@|apply grant-cycle-list.block}
+</squarespace:query>
+
+<squarespace:query collection="grant-cycle-7">
+  {@|apply grant-cycle-list.block}
+</squarespace:query>
+
+<squarespace:query collection="grant-cycle-8">
+  {@|apply grant-cycle-list.block}
 </squarespace:query>
