@@ -4,19 +4,15 @@
 // VENDOR
 @import '~sanitize.css/sanitize.css';
 
+// SQUARESPACE HACKS
+@import './_squarespace-hacks';
+
 // LAYOUT
-@import './layout';
+@import './_layout';
+@import './_typography';
+
+// COMPONENTS
+@import './components/_header';
 
 // TEMPLATES
-@import './_main';
-
-body {
-  font-size: 1rem;
-  font-family: 'Libre Franklin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  line-height: $line-height-body;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  line-height: $line-height-heading;
-}
+@import './templates/_home';

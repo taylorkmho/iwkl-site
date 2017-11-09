@@ -1,0 +1,7 @@
+<div class="home" style="background-image: url('/assets/bg--red.jpg');">
+  <div class="splash">
+    <div class="splash__video tt-up heading antialiased">
+      <squarespace:block-field id="splash-video" label="Home video" columns="1" />
+    </div>
+  </div>
+</div>

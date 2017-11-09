@@ -7,16 +7,14 @@
 
 var core = require('@squarespace/core');
 
-window.addEventListener('DOMContentLoaded', function() {
-
-  var images = document.querySelectorAll('img[data-src]');
-
-  for (var i = 0; i < images.length; i++) {
-    core.ImageLoader.load(images[i], {
-      load: true
-    });
-  }
-
-});
-
-console.log('what');
+// window.addEventListener('DOMContentLoaded', function() {
+//
+//   var images = document.querySelectorAll('img[data-src]');
+//
+//   for (var i = 0; i < images.length; i++) {
+//     core.ImageLoader.load(images[i], {
+//       load: true
+//     });
+//   }
+//
+// });

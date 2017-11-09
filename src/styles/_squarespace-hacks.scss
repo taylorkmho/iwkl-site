@@ -1,0 +1,9 @@
+%sq-no-padding {
+  .sqs-layout > .sqs-row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .sqs-block {
+    padding: 0 !important;
+  }
+}

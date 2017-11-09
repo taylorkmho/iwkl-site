@@ -1,0 +1,61 @@
+$max-width: 860px;
+
+.home {
+  background-size: cover;
+  background-position: center top;
+
+  .splash {
+    position: relative;
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: ($gutter*12) 0 ($gutter*8);
+    @extend %sq-no-padding;
+
+    &__video {
+      .video-caption-wrapper {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 200;
+        color: #fff;
+        text-align: center;
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+        margin: 0 (-$gutter*3);
+        pointer-events: none;
+
+        p {
+          margin: 0;
+        }
+      }
+
+      .sqs-video-opaque {
+        opacity: .15;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      .sqs-video-icon {
+        top: auto;
+        bottom: ($gutter*2);
+        color: #fff;
+
+        &:before {
+          content: "WATCH";
+          position: absolute;
+          left: 0;
+          transform: translate(-100%, -50%);
+          top: 50%;
+        }
+        &:after {
+          content: "VIDEO";
+          position: absolute;
+          right: 0;
+          transform: translate(100%, -50%);
+          top: 50%;
+        }
+      }
+    }
+  }
+}

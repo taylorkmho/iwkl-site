@@ -1,0 +1,20 @@
+.header {
+  position: absolute;
+  width: 100%;
+  padding: ($gutter*3) 0 0;
+
+  &__container {
+    display: flex;
+  }
+
+  &__nav {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row-reverse;
+    align-items: center;
+
+    a {
+      color: #fff;
+    }
+  }
+}
