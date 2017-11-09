@@ -18,15 +18,11 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.(sass|scss)$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader']
+          use: ['css-loader', 'postcss-loader', 'sass-loader']
         })
-      },
-      {
-        test: /\.(sass|scss)$/,
-        loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
       }
     ]
   },
