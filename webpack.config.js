@@ -7,7 +7,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 
 const siteJs = path.resolve(__dirname, 'src', 'scripts', 'site.js');
-const siteCss = path.resolve(__dirname, 'src', 'styles', 'site.css');
+const siteCss = path.resolve(__dirname, 'src', 'styles', 'main.scss');
 
 const config = {
   devtool: IS_PRODUCTION ? false : 'source-map',
@@ -23,6 +23,10 @@ const config = {
           fallback: 'style-loader',
           use: ['css-loader']
         })
+      },
+      {
+        test: /\.(sass|scss)$/,
+        loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
       }
     ]
   },
