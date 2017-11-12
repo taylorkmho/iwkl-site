@@ -34,8 +34,8 @@ const config = {
     ]
   },
   output: {
-    path: path.resolve(__dirname, 'build', 'scripts'),
-    filename: 'site-bundle.js'
+    path: path.resolve(__dirname, 'build'),
+    filename: './scripts/site-bundle.js'
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -43,7 +43,7 @@ const config = {
     }),
 
     new ExtractTextPlugin({
-      filename: 'styles/app.css'
+      filename: './styles/app.css'
     })
   ]
 }
