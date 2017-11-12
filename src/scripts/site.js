@@ -1,20 +1,13 @@
+import controller from '@squarespace/controller';
 
-// Use the sqs-core module to access core Squarespace
-// functionality, like Lifecycle and ImageLoader. For
-// full documentation, go to:
-//
-// http://github.com/squarespace/squarespace-core
+function HomeVideoPlayer(element) {
+  const caption = element.querySelector('.video-caption');
 
-var core = require('@squarespace/core');
+  const handleClick = () => {
+    element.classList.add('splash__video--playing')
+  };
 
-// window.addEventListener('DOMContentLoaded', function() {
-//
-//   var images = document.querySelectorAll('img[data-src]');
-//
-//   for (var i = 0; i < images.length; i++) {
-//     core.ImageLoader.load(images[i], {
-//       load: true
-//     });
-//   }
-//
-// });
+  element.addEventListener('click', handleClick);
+}
+
+controller.register('HomeVideoPlayer', HomeVideoPlayer);

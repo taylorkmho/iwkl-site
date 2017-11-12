@@ -23,6 +23,7 @@ $max-width: 860px;
         letter-spacing: 2px;
         margin: 0 (-$gutter*3);
         pointer-events: none;
+        transition: opacity 150ms ease-out;
 
         p {
           margin: 0;
@@ -54,6 +55,12 @@ $max-width: 860px;
           right: 0;
           transform: translate(100%, -50%);
           top: 50%;
+        }
+      }
+
+      &--playing {
+        .video-caption-wrapper {
+          opacity: 0;
         }
       }
     }
