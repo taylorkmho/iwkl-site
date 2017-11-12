@@ -3,7 +3,7 @@
   margin: 0 auto;
   padding: 0 $gutter;
 
-  @media screen and (min-width: #{$container-width + ($gutter * 2)}) {
+  @media screen and (min-width: $container-query) {
     padding-left: 0;
     padding-right: 0;
   }
