@@ -18,6 +18,13 @@ const config = {
   module: {
     rules: [
       {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader'
+        }
+      },
+      {
         test: /\.(sass|scss)$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
@@ -27,8 +34,8 @@ const config = {
     ]
   },
   output: {
-    path: path.resolve(__dirname, 'build'),
-    filename: './scripts/site-bundle.js'
+    path: path.resolve(__dirname, 'build', 'scripts'),
+    filename: 'site-bundle.js'
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -36,19 +43,7 @@ const config = {
     }),
 
     new ExtractTextPlugin({
-      filename: './styles/app.css',
-      allChunks: true
-    }),
-
-    new webpack.optimize.UglifyJsPlugin({
-      beautify: !IS_PRODUCTION,
-      compress: IS_PRODUCTION ? {
-        drop_console: true, // eslint-disable-line camelcase
-        warnings: false
-      } : false,
-      mangle: IS_PRODUCTION ? {
-          except: ['_'] // don't mangle lodash
-      } : false
+      filename: 'styles/app.css'
     })
   ]
 }
