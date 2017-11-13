@@ -1,16 +1,19 @@
 $max-width--video: 860px;
 
-.home {
+.home-section {
   background-size: cover;
   background-position: center top;
+  padding-top: ($gutter*8);
+  padding-bottom: ($gutter*8);
+  &:first-of-type {
+    padding-top: ($gutter*12);
+  }
 }
 
 .splash {
   position: relative;
   max-width: $max-width--video;
   margin: 0 auto;
-  padding-top: ($gutter*12);
-  padding-bottom: ($gutter*8);
   @extend %sq-no-padding;
 
   &__video {
