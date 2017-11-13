@@ -97,6 +97,11 @@ $max-width--video: 860px;
       &--playing {
         .video-caption-wrapper {
           opacity: 0;
+
+          // prevents caption from hiding during edit mode
+          .sqs-edit-mode-active & {
+            opacity: 1 !important;
+          }
         }
       }
     }
