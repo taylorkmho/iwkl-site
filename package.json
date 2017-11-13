@@ -12,7 +12,7 @@
     "authserver": "squarespace runserver --auth -A",
     "startNoAuth": "squarespace setup && (npm run watch & npm run server)",
     "start": "squarespace setup && (npm run watch & npm run authserver)",
-    "deploy": "cd build && git commit -am 'Updated site' && git push --force https://taylor-ho-28z3.squarespace.com/template.git master"
+    "deploy": "cd build && git status && git commit -am 'Updated site' && git push --force https://taylor-ho-28z3.squarespace.com/template.git master"
   },
   "repository": {
     "type": "git",
