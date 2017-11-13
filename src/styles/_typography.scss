@@ -1,8 +1,11 @@
 body {
   font-size: 1rem;
+  line-height: $line-height-body;
+}
+
+body, .body {
   font-family: 'Libre Franklin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 400;
-  line-height: $line-height-body;
 }
 
 h1, h2, h3, h4, h5, h6, .heading {
