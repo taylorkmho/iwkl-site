@@ -28,8 +28,41 @@ $max-width--video: 860px;
   @extend %sq-no-padding;
 
   &__video {
-    .video-block {
-      background-color: darken($c-red, 20%);
+    box-shadow: $box-shadow-2;
+    .sqs-video-wrapper {
+      border-radius: $border-radius;
+      overflow: hidden;
+      .sqs-video-icon {
+        color: #fff;
+        background-color: rgba(#000, .25);
+        &:before,
+        &:after {
+          @extend .body;
+          position: absolute;
+          top: 50%;
+          display: flex;
+          align-items: center;
+          height: 100%;
+          background-color: rgba(#000, .25);
+          font-size: .75rem;
+          font-weight: 600;
+          letter-spacing: 1px;
+        }
+        &:before {
+          content: "WATCH";
+          left: 0;
+          transform: translate(-100%, -50%);
+          border-radius: 24px 0 0 24px;
+          padding-left: $gutter;
+        }
+        &:after {
+          content: "VIDEO";
+          right: 0;
+          transform: translate(100%, -50%);
+          border-radius: 0 24px 24px 0;
+          padding-right: $gutter;
+        }
+      }
     }
     .video-caption-wrapper {
       text-align: center;
@@ -38,37 +71,6 @@ $max-width--video: 860px;
         color: #fff;
         letter-spacing: 1px;
         margin: $gutter 0 0;
-      }
-    }
-    .sqs-video-overlay .sqs-video-icon {
-      color: #fff;
-      background-color: rgba(#000, .25);
-      &:before,
-      &:after {
-        @extend .body;
-        position: absolute;
-        top: 50%;
-        display: flex;
-        align-items: center;
-        height: 100%;
-        background-color: rgba(#000, .25);
-        font-size: .75rem;
-        font-weight: 600;
-        letter-spacing: 1px;
-      }
-      &:before {
-        content: "WATCH";
-        left: 0;
-        transform: translate(-100%, -50%);
-        border-radius: 24px 0 0 24px;
-        padding-left: $gutter;
-      }
-      &:after {
-        content: "VIDEO";
-        right: 0;
-        transform: translate(100%, -50%);
-        border-radius: 0 24px 24px 0;
-        padding-right: $gutter;
       }
     }
 
@@ -99,15 +101,19 @@ $max-width--video: 860px;
           margin: 0;
         }
       }
-      .sqs-video-overlay .sqs-video-icon {
-        top: auto;
-        bottom: $gutter;
-        background-color: transparent;
-        &:before,
-        &:after {
+      .sqs-video-wrapper {
+         background-color: desaturate(darken($c-red, 20%), 20%);
+
+        .sqs-video-icon {
+          top: auto;
+          bottom: $gutter;
           background-color: transparent;
+          &:before,
+          &:after {
+            background-color: transparent;
+          }
         }
-      }
+       }
       &--playing {
         .video-caption-wrapper {
           opacity: 0;
@@ -133,7 +139,7 @@ $max-width--video: 860px;
           letter-spacing: 3px;
         }
       }
-      .sqs-video-overlay .sqs-video-icon {
+      .sqs-video-wrapper .sqs-video-icon {
         bottom: ($gutter*2);
       }
     }
@@ -174,7 +180,8 @@ $max-width--video: 860px;
   }
   .sqs-gallery {
     img {
-      box-shadow: 0 10px 10px -5px rgba(#000, .25);
+      border-radius: $border-radius;
+      box-shadow: $box-shadow-1;
     }
   }
 }
