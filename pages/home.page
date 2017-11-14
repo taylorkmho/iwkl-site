@@ -1,18 +1,13 @@
-<div class="home-section" style="background-image: url('/assets/bg--red.jpg');">
+<div class="home-section home-section--red" style="background-image: url('/assets/bg--red.jpg');">
   <div class="splash container">
     <div class="splash__video tt-up heading antialiased" data-controller="HomeVideoPlayer">
-      <squarespace:block-field id="splash-video" label="Home video" columns="1" />
+      <squarespace:block-field id="splash-video" label="Home video" columns="1" lock-layout="true" />
     </div>
   </div>
 </div>
 
-<div class="home-section" style="background-image: url('/assets/bg--green.jpg');">
-  <div class="photos-column container">
-    <div class="photos-column__copy">
-      <squarespace:block-field id="photos-column__copy" label="Copy" columns="1" />
-    </div>
-    <div class="photos-column__photos">
-      <squarespace:block-field id="photos-column__photos" label="Photos" columns="1" />
-    </div>
+<div class="home-section home-section--green" style="background-image: url('/assets/bg--green.jpg');">
+  <div class="photos-columns container antialiased">
+    <squarespace:block-field id="photos-columns" label="Columns - photos" columns="12" lock-layout="true" />
   </div>
 </div>

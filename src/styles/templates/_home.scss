@@ -5,8 +5,19 @@ $max-width--video: 860px;
   background-position: center top;
   padding-top: ($gutter*8);
   padding-bottom: ($gutter*8);
+  color: #fff;
   &:first-of-type {
     padding-top: ($gutter*12);
+  }
+  &--red {
+    background-color: $c-red;
+  }
+  &--green {
+    background-color: $c-green;
+  }
+  p {
+    line-height: 1.75;
+    font-weight: 600;
   }
 }
 
@@ -17,6 +28,9 @@ $max-width--video: 860px;
   @extend %sq-no-padding;
 
   &__video {
+    .video-block {
+      background-color: darken($c-red, 20%);
+    }
     .video-caption-wrapper {
       text-align: center;
       p {
@@ -126,6 +140,103 @@ $max-width--video: 860px;
   }
 }
 
-.photos-column {
+.photos-columns {
+  p {
+    &:not(:last-of-type) {
+      a {
+        position: relative;
+        color: #fff;
+        text-decoration: none;
+        &:after {
+          $underline-horz-delta: 2px;
+          content: "";
+          position: absolute;
+          bottom: -2px;
+          left: -$underline-horz-delta;
+          height: 2px;
+          width: calc(100% + #{2 * $underline-horz-delta});
+          background-color: rgba(#fff, .25);
+          border-radius: 1px;
+          transition: all 150ms ease-out;
+        }
+        &:hover:after {
+          background-color: rgba(#fff, .75);
+        }
+      }
+    }
+    &:last-of-type {
+      a {
+        margin-top: $gutter;
+        @extend .button;
+        @extend .button--filled-white;
+      }
+    }
+  }
+  .sqs-gallery {
+    img {
+      box-shadow: 0 10px 10px -5px rgba(#000, .25);
+    }
+  }
+}
 
+@media screen and (max-width: $mobile-query-max) {
+  .photos-columns {
+    .col,
+    .sqs-col {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+    .sqs-block {
+      margin: 0;
+      width: 100%;
+    }
+    .sqs-gallery {
+      display: flex;
+      align-items: center;
+      .image-wrapper {
+        margin-right: $gutter;
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $mobile-query) {
+  .photos-columns {
+    .sqs-gallery {
+      .image-wrapper {
+        margin-bottom: $gutter;
+        max-width: 420px;
+        &:nth-of-type(even) {
+          float: right;
+        }
+        &:nth-of-type(odd) {
+          margin-left: auto;
+          margin-right: auto;
+        }
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .photos-columns {
+    .col,
+    .sqs-col {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+    }
+    .sqs-block {
+      flex-grow: 1;
+      &.html-block {
+        max-width: 520px;
+      }
+    }
+  }
 }

@@ -1,8 +1,15 @@
 // LAYOUT
-$gutter:              20px;
+$gutter:              17px;
 $container-width:     1400px;
 $container-query:     $container-width + ($gutter * 2);
+$mobile-width:        640px;
+$mobile-query:        $mobile-width + ($gutter * 2);
+$mobile-query-max:    $mobile-width + ($gutter * 2) - 1;
 
 // TYPOGRAPHY
 $line-height-body:    1.6;
 $line-height-heading: 1.2;
+
+// COLORS
+$c-red:               #e36c5a;
+$c-green:             #2a9f7d;
