@@ -3,6 +3,7 @@ $max-width--video: 860px;
 .home-section {
   background-size: cover;
   background-position: center top;
+  overflow: hidden;
   padding-top: ($gutter*8);
   padding-bottom: ($gutter*8);
   color: #fff;
@@ -14,6 +15,10 @@ $max-width--video: 860px;
   }
   &--green {
     background-color: $c-green;
+  }
+  &--blue {
+    background-color: $c-blue;
+    background-position: center center;
   }
   p {
     line-height: 1.75;
@@ -146,35 +151,56 @@ $max-width--video: 860px;
   }
 }
 
-.photos-columns {
-  p {
-    &:not(:last-of-type) {
-      a {
-        position: relative;
-        color: #fff;
-        text-decoration: none;
-        &:after {
-          $underline-horz-delta: 2px;
-          content: "";
-          position: absolute;
-          bottom: -2px;
-          left: -$underline-horz-delta;
-          height: 2px;
-          width: calc(100% + #{2 * $underline-horz-delta});
-          background-color: rgba(#fff, .25);
-          border-radius: 1px;
-          transition: all 150ms ease-out;
-        }
-        &:hover:after {
-          background-color: rgba(#fff, .75);
-        }
+.home-columns {
+  &--map {
+    .col {
+      position: relative;
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: scale(1.5);
+        opacity: .5;
+        transform-origin: left top;
+        background-image: url('/assets/home-map.svg');
+        background-size: auto 100%;
+        width: 100%;
+        height: 0;
+        padding-bottom: 43%;
       }
     }
-    &:last-of-type {
-      a {
-        margin-top: $gutter;
-        @extend .button;
-        @extend .button--filled-white;
+  }
+  .html-block {
+    p {
+      &:not(:last-of-type) {
+        a {
+          position: relative;
+          color: #fff;
+          text-decoration: none;
+          &:after {
+            $underline-horz-delta: 2px;
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: -$underline-horz-delta;
+            height: 2px;
+            width: calc(100% + #{2 * $underline-horz-delta});
+            background-color: rgba(#fff, .25);
+            border-radius: 1px;
+            transition: all 150ms ease-out;
+          }
+          &:hover:after {
+            background-color: rgba(#fff, .75);
+          }
+        }
+      }
+      &:last-of-type {
+        a {
+          margin-top: $gutter;
+          @extend .button;
+          @extend .button--filled-white;
+        }
       }
     }
   }
@@ -187,19 +213,18 @@ $max-width--video: 860px;
 }
 
 @media screen and (max-width: $mobile-query-max) {
-  .photos-columns {
-    .col,
-    .sqs-col {
+  .home-columns {
+    .sqs-row {
       display: flex;
-      flex-direction: column-reverse;
+      flex-direction: column;
     }
-    .sqs-block {
-      margin: 0;
+    .sqs-col-6 {
       width: 100%;
     }
     .sqs-gallery {
       display: flex;
       align-items: center;
+      margin-top: $gutter;
       .image-wrapper {
         margin-right: $gutter;
         &:last-of-type {
@@ -211,7 +236,19 @@ $max-width--video: 860px;
 }
 
 @media screen and (min-width: $mobile-query) {
-  .photos-columns {
+  .home-columns {
+    &--map {
+      .col {
+        width: 50%;
+        &:before {
+          top: 50%;
+          left: 0;
+          transform: translate(100%, -50%) scale(2.5);
+          transform-origin: center left;
+          opacity: 1;
+        }
+      }
+    }
     .sqs-gallery {
       .image-wrapper {
         margin-bottom: $gutter;
@@ -232,18 +269,23 @@ $max-width--video: 860px;
 }
 
 @media screen and (min-width: 960px) {
-  .photos-columns {
-    .col,
-    .sqs-col {
+  .home-columns {
+    &--map {
+      .col {
+        &:before {
+          transform: translate(100%, -50%) scale(2);
+        }
+      }
+    }
+
+    .sqs-row {
       display: flex;
-      flex-direction: row-reverse;
       align-items: center;
     }
-    .sqs-block {
-      flex-grow: 1;
-      &.html-block {
-        max-width: 520px;
-      }
+    .html-block {
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 }

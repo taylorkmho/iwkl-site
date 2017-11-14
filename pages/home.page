@@ -7,7 +7,13 @@
 </div>
 
 <div class="home-section home-section--green" style="background-image: url('/assets/bg--green.jpg');">
-  <div class="photos-columns container antialiased">
-    <squarespace:block-field id="photos-columns" label="Columns - photos" columns="12" lock-layout="true" />
+  <div class="home-columns container antialiased">
+    <squarespace:block-field id="green-section" label="Text + Gallery" columns="12" lock-layout="true" />
+  </div>
+</div>
+
+<div class="home-section home-section--blue" style="background-image: url('/assets/bg--blue.jpg');">
+  <div class="home-columns home-columns--map container antialiased">
+    <squarespace:block-field id="blue-section" label="Text + Map" columns="12" lock-layout="true" />
   </div>
 </div>
