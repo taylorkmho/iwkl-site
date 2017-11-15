@@ -1,4 +1,4 @@
-.header {
+.nav {
   position: absolute;
   width: 100%;
   padding: ($gutter*3) 0 0;
@@ -7,7 +7,7 @@
     display: flex;
   }
 
-  &__nav {
+  &__items {
     display: flex;
     flex-grow: 1;
     flex-direction: row-reverse;

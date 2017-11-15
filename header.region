@@ -12,10 +12,10 @@
 
 <body id="{squarespace.page-id}" class="{squarespace.page-classes}">
 
-  <header class="header">
-    <div class="header__container container">
+  <nav class="nav">
+    <div class="nav__container container">
       {.section website}
-        <a class="header__logo" href="/" data-content-field="site-title">
+        <a class="nav__logo" href="/" data-content-field="site-title">
           {.if logoImageUrl}
             <img src="{logoImageUrl}?format=original" alt="{siteTitle}" />
           {.or}
@@ -23,8 +23,8 @@
           {.end}
         </a>
       {.end}
-      <div class="header__nav">
+      <div class="nav__items">
         <squarespace:navigation navigationId="primary-nav" template="navigation" />
       </div>
     </div>
-  </header>
+  </nav>
