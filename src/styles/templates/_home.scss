@@ -3,6 +3,7 @@ $max-width--video: 860px;
 .home-section {
   background-size: cover;
   background-position: center top;
+  background-attachment: fixed;
   overflow: hidden;
   padding-top: ($gutter*8);
   padding-bottom: ($gutter*8);
@@ -19,6 +20,9 @@ $max-width--video: 860px;
   &--blue {
     background-color: $c-blue;
     background-position: center center;
+  }
+  &--yellow {
+    background-color: $c-yellow;
   }
   p {
     line-height: 1.75;
@@ -153,7 +157,8 @@ $max-width--video: 860px;
 
 .home-columns {
   &--map {
-    .col {
+    .col,
+    .sqs-col {
       position: relative;
       &:before {
         content: "";
@@ -175,24 +180,7 @@ $max-width--video: 860px;
     p {
       &:not(:last-of-type) {
         a {
-          position: relative;
           color: #fff;
-          text-decoration: none;
-          &:after {
-            $underline-horz-delta: 2px;
-            content: "";
-            position: absolute;
-            bottom: -2px;
-            left: -$underline-horz-delta;
-            height: 2px;
-            width: calc(100% + #{2 * $underline-horz-delta});
-            background-color: rgba(#fff, .25);
-            border-radius: 1px;
-            transition: all 150ms ease-out;
-          }
-          &:hover:after {
-            background-color: rgba(#fff, .75);
-          }
         }
       }
       &:last-of-type {
@@ -238,7 +226,8 @@ $max-width--video: 860px;
 @media screen and (min-width: $mobile-query) {
   .home-columns {
     &--map {
-      .col {
+      .col,
+      .sqs-col {
         width: 50%;
         &:before {
           top: 50%;
@@ -271,7 +260,8 @@ $max-width--video: 860px;
 @media screen and (min-width: 960px) {
   .home-columns {
     &--map {
-      .col {
+      .col,
+      .sqs-col {
         &:before {
           transform: translate(100%, -50%) scale(2);
         }

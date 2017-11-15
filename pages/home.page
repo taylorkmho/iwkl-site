@@ -17,3 +17,9 @@
     <squarespace:block-field id="blue-section" label="Text + Map" columns="12" lock-layout="true" />
   </div>
 </div>
+
+<div class="home-section home-section--yellow" style="background-image: url('/assets/bg--yellow.jpg');">
+  <!-- <div class="home-columns home-columns--map container antialiased">
+    <squarespace:block-field id="blue-section" label="Text + Map" columns="12" lock-layout="true" />
+  </div> -->
+</div>

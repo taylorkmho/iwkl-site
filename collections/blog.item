@@ -1,0 +1,124 @@
+{.section item}
+<div class="blog-post" data-content-field="main-content" data-item-id="{id}">
+  {.if assetUrl}
+    <header class="header">
+      <div class="header__image" style="background-image: url('{assetUrl}');"></div>
+      <div class="header__copy antialiased">
+        <h1 class="header__title" data-content-field="title">{title}</h2>
+        <div class="header__meta">
+          <time datetime="{addedOn|date %F}" pubdate>{addedOn|date %b %G}</time>
+          {.section categories}{.repeated section @}<a href="{collection.fullUrl}?category={@|url-encode}" class="link link--body">{@}</a>{.alternates with},{.end}{.end}
+        </div>
+      </div>
+    </header>
+  {.or}
+    {# TODO: implement non-feature image header}
+  {.end}
+  <article class="blog-post__content container main-content {@|item-classes}" id="article-{id}">
+    {body}
+    <footer class="blog-item-footer">
+      <div class="footer-meta">
+        {.section author}<a href="{collection.fullUrl}?author={author.id}">{displayName}</a>{.end}
+        {.section categories}{.repeated section @}<a href="{collection.fullUrl}?category={@|url-encode}" class="link link--body">{@}</a>{.alternates with},{.end}{.end}
+        {.section tags}{.repeated section @}<a href="{collection.fullUrl}?tag={@|url-encode}" rel="tag">{@}</a>{.alternates with}, {.end}{.end}
+      </div>
+    </footer>
+
+    {.if postItemInjectCode}<div class="blog-item-injection">{postItemInjectCode}</div>{.end}
+  </article>
+</div>
+{.end}
+
+{# TODO: implement pagination}
+{##BEGIN}
+  {.section pagination}
+    <section class="blog-item-pagination">
+      {.section prevItem}<a href="{fullUrl}" class="blog-item-pagination-link blog-item-pagination-link--prev">
+        <div class="blog-item-label">
+          <svg class="prev-icon" viewBox="0 0 50 100">
+            <use xlink:href="/assets/ui-icons.svg#thick-arrow-left-icon"></use>
+          </svg>
+        </div>
+        <span class="pagination-title-wrapper">
+          {.main-image?}<img {@|image-meta} />{.end}
+          <h2 class="blog-item-pagination-title"><time class="dt-published date-pagination" datetime="{addedOn|date %F}" pubdate>{addedOn|date %b %e} </time>{title}</h2>
+        </span>
+      </a>{.or}{.end}<!--
+      -->{.section nextItem}<a href="{fullUrl}" class="blog-item-pagination-link blog-item-pagination-link--next">
+        <div class="blog-item-label">
+          <svg class="next-icon" viewBox="0 0 50 100">
+            <use xlink:href="/assets/ui-icons.svg#thick-arrow-right-icon"></use>
+          </svg>
+        </div>
+        <span class="pagination-title-wrapper">
+          {.main-image?}<img {@|image-meta} />{.end}
+          <h2 class="blog-item-pagination-title"><time class="dt-published date-pagination" datetime="{addedOn|date %F}" pubdate>{addedOn|date %b %e} </time>{title}</h2>
+        </span>
+      </a>{.or}{.end}
+    </section>
+  {.end}
+{END##}
+
+{# TODO: implement related items}
+{##BEGIN}
+  {.section item}
+    {.if collection.features.relatedItems.isEnabled}
+      <squarespace:related collectionId="{collection.id}" limit="3" itemId="{id}">
+        {.section items}
+          <h2 class="related-title responsive-padding--top">Related Posts</h2>
+          <section id="related" class="blog-item-related clear" data-controller="RelatedPostImages">
+            {.repeated section @}<article id="article-{id}" class="blog-list-item entry entry--list entry--related h-entry {@|item-classes}{.main-image?} has-main-image{.or} no-main-image{.end}" data-item-id="{id}" data-item-title="{title}">
+                  <div class="thumbnail-title-wrapper">
+                    {.main-image?}
+                    <div class="excerpt-thumb">
+                      <a href="{fullUrl}" class="excerpt-image content-fill"><img {@|image-meta} /></a>
+                    </div>
+                    {.or}
+                    <div class="entry-title-wrapper">
+                      <div class="title-bg-wrapper">
+                        <h2 class="entry-title entry-title--list">
+                          <a href="{fullUrl}" class="u-url" rel="bookmark">
+                            <time class="dt-published date-callout" datetime="{addedOn|date %F}" pubdate>
+                              <div class="date-wrapper">
+                                <span class="month">{addedOn|date %b} </span><span class="day">{addedOn|date %e}</span>
+                              </div>
+                            </time>
+                            <time class="dt-published date-highlight" datetime="{addedOn|date %F}" pubdate>{addedOn|date %b %e} </time>{title}
+                          </a>
+                        </h2>
+                      </div>
+                    </div>
+                    {.end}
+                  </div>
+
+                  <div class="entry-text">
+                    {.main-image?}
+                    <header class="entry-header">
+                      {.passthrough?}
+                      <a href="{sourceUrl}" class="entry-title-passthrough" target="_blank">
+                      {.or}
+                      <a href="{fullUrl}" class="u-url" rel="bookmark">
+                      {.end}
+                      <time class="dt-published date-callout" datetime="{addedOn|date %F}" pubdate>
+                        <div class="date-wrapper">
+                          <span class="month">{addedOn|date %b} </span><span class="day">{addedOn|date %e}</span>
+                        </div>
+                      </time>
+                      <h2 class="entry-title entry-title--list p-name">
+                        <time class="dt-published date-highlight" datetime="{addedOn|date %F}" pubdate>{addedOn|date %b %e} </time>
+                        {title}
+                      </h2>
+                      </a>
+                    </header>
+                    {.or}
+                    {.end}
+                  </div>
+
+                </article>{.end}
+          </section>
+        {.end}
+      </squarespace:related>
+    {.end}
+  </div>
+  {.end}
+{END##}

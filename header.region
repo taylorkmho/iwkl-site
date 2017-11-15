@@ -19,7 +19,7 @@
           {.if logoImageUrl}
             <img src="{logoImageUrl}?format=original" alt="{siteTitle}" />
           {.or}
-            <img src="/assets/logo-pawanka.svg" alt="{siteTitle}" />
+            {@|apply logo.block}
           {.end}
         </a>
       {.end}
