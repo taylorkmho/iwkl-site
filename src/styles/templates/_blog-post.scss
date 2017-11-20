@@ -25,28 +25,21 @@
     background-color: rgba($c-yellow, .5);
   }
   &__copy {
-    @extend .container;
     position: relative;
     padding-top: 10vw;
     padding-bottom: 5vw;
     z-index: ($header-z + 10);
-    color: #fff;
-    h1 {
-      margin: 0;
-      max-width: 640px;
-    }
+  }
+  &__title {
+    @extend .container--reading;
   }
   &__meta {
+    @extend .container--reading;
     margin-top: $gutter;
-    @extend .h3;
     time {
       &:after {
         content: " //"
       }
-    }
-    a {
-      text-decoration: none;
-      color: #fff;
     }
   }
 }
@@ -62,7 +55,7 @@
 .blog-post {
   &__content {
     .html-block {
-      max-width: 780px;
+      max-width: $container-width--reading;
     }
   }
 }

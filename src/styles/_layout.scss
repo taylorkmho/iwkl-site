@@ -7,4 +7,7 @@
     padding-left: 0;
     padding-right: 0;
   }
+  &--reading {
+    max-width: $container-width--reading;
+  }
 }

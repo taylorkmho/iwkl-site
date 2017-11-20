@@ -7,7 +7,6 @@ $max-width--video: 860px;
   overflow: hidden;
   padding-top: ($gutter*8);
   padding-bottom: ($gutter*8);
-  color: #fff;
   &:first-of-type {
     padding-top: ($gutter*12);
   }
@@ -42,7 +41,6 @@ $max-width--video: 860px;
       border-radius: $border-radius;
       overflow: hidden;
       .sqs-video-icon {
-        color: #fff;
         background-color: rgba(#000, .25);
         &:before,
         &:after {
@@ -53,6 +51,7 @@ $max-width--video: 860px;
           align-items: center;
           height: 100%;
           background-color: rgba(#000, .25);
+          color: #fff;
           font-size: .75rem;
           font-weight: 600;
           letter-spacing: 1px;
@@ -77,7 +76,6 @@ $max-width--video: 860px;
       text-align: center;
       p {
         font-size: 1.25rem;
-        color: #fff;
         letter-spacing: 1px;
         margin: $gutter 0 0;
       }
@@ -178,14 +176,9 @@ $max-width--video: 860px;
   }
   .html-block {
     p {
-      &:not(:last-of-type) {
-        a {
-          color: #fff;
-        }
-      }
       &:last-of-type {
+        margin-top: ($gutter*2);
         a {
-          margin-top: $gutter;
           @extend .button;
           @extend .button--filled-white;
         }

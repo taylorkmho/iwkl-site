@@ -3,9 +3,9 @@
   {.if assetUrl}
     <header class="header">
       <div class="header__image" style="background-image: url('{assetUrl}');"></div>
-      <div class="header__copy antialiased">
+      <div class="header__copy container copy copy--light copy--body copy--antialiased">
         <h1 class="header__title" data-content-field="title">{title}</h2>
-        <div class="header__meta">
+        <div class="header__meta h3">
           <time datetime="{addedOn|date %F}" pubdate>{addedOn|date %b %G}</time>
           {.section categories}{.repeated section @}<a href="{collection.fullUrl}?category={@|url-encode}" class="link link--body">{@}</a>{.alternates with},{.end}{.end}
         </div>
@@ -14,7 +14,7 @@
   {.or}
     {# TODO: implement non-feature image header}
   {.end}
-  <article class="blog-post__content container main-content {@|item-classes}" id="article-{id}">
+  <article class="blog-post__content container copy copy--body {@|item-classes}" id="article-{id}">
     {body}
     <footer class="blog-item-footer">
       <div class="footer-meta">

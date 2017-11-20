@@ -1,23 +1,24 @@
 // LAYOUT
-$gutter:              17px;
-$container-width:     1400px;
-$container-query:     $container-width + ($gutter * 2);
-$mobile-width:        640px;
-$mobile-query:        $mobile-width + ($gutter * 2);
-$mobile-query-max:    $mobile-width + ($gutter * 2) - 1;
+$gutter:                    16px;
+$container-width:           1280px;
+$container-query:           $container-width + ($gutter * 2);
+$container-width--reading:  780px;
+$mobile-width:              640px;
+$mobile-query:              $mobile-width + ($gutter * 2);
+$mobile-query-max:          $mobile-width + ($gutter * 2) - 1;
 
 // TYPOGRAPHY
-$line-height-body:    1.6;
-$line-height-heading: 1.2;
+$line-height-body:          1.6;
+$line-height-heading:       1.2;
 
 // COLORS
-$c-red:               #e36c5a;
-$c-green:             #2a9f7d;
-$c-blue:              #2a829f;
-$c-yellow:            #e6ba20;
-$c-body:              #222;
+$c-red:                     #e36c5a;
+$c-green:                   #2a9f7d;
+$c-blue:                    #2a829f;
+$c-yellow:                  #e6ba20;
+$c-body:                    #222;
 
 // STYLES
-$border-radius:       2px;
-$box-shadow-1:        0 10px 10px -5px rgba(#000000, .25);
-$box-shadow-2:        0 20px 20px -15px rgba(#000000, .25);
+$border-radius:             2px;
+$box-shadow-1:              0 10px 10px -5px rgba(#000000, .25);
+$box-shadow-2:              0 20px 20px -15px rgba(#000000, .25);
