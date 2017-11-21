@@ -37,6 +37,7 @@ $max-width--video: 860px;
 
   &__video {
     box-shadow: $box-shadow-2;
+    // TODO: add hover to show icon background
     .sqs-video-wrapper {
       border-radius: $border-radius;
       overflow: hidden;

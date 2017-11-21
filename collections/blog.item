@@ -1,9 +1,9 @@
 {.section item}
 <div class="blog-post" data-content-field="main-content" data-item-id="{id}">
   {.if assetUrl}
-    <header class="header">
-      <div class="header__image" style="background-image: url('{assetUrl}');"></div>
-      <div class="header__copy container copy copy--light copy--body copy--antialiased">
+    <header class="header" data-controller="Header">
+      <div class="header__image" style="background-image: url('{assetUrl}');" data-focus-x="{mediaFocalPoint.x}" data-focus-y="{mediaFocalPoint.y}"></div>
+      <div class="header__copy container copy copy--light copy--large copy--antialiased">
         <h1 class="header__title" data-content-field="title">{title}</h2>
         <div class="header__meta h3">
           <time datetime="{addedOn|date %F}" pubdate>{addedOn|date %b %G}</time>
@@ -14,7 +14,7 @@
   {.or}
     {# TODO: implement non-feature image header}
   {.end}
-  <article class="blog-post__content container copy copy--body {@|item-classes}" id="article-{id}">
+  <article class="blog-post__content container copy copy--large {@|item-classes}" id="article-{id}">
     {body}
     <footer class="blog-item-footer">
       <div class="footer-meta">

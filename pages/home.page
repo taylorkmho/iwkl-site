@@ -1,5 +1,5 @@
 <div class="home-section home-section--red" style="background-image: url('/assets/bg--red.jpg');">
-  <div class="splash container copy copy--light copy--antialiased">
+  <div class="splash container copy copy--large copy--light copy--antialiased">
     <div class="splash__video tt-up heading" data-controller="HomeVideoPlayer">
       <squarespace:block-field id="splash-video" label="Home video" columns="1" lock-layout="true" />
     </div>
@@ -7,19 +7,36 @@
 </div>
 
 <div class="home-section home-section--green" style="background-image: url('/assets/bg--green.jpg');">
-  <div class="home-columns container copy copy--light copy--antialiased">
+  <div class="home-columns container copy copy--large copy--light copy--antialiased">
     <squarespace:block-field id="green-section" label="Text + Gallery" columns="12" lock-layout="true" />
   </div>
 </div>
 
 <div class="home-section home-section--blue" style="background-image: url('/assets/bg--blue.jpg');">
-  <div class="home-columns home-columns--map container copy copy--light copy--antialiased">
+  <div class="home-columns home-columns--map container copy copy--large copy--light copy--antialiased">
     <squarespace:block-field id="blue-section" label="Text + Map" columns="12" lock-layout="true" />
   </div>
 </div>
 
 <div class="home-section home-section--yellow" style="background-image: url('/assets/bg--yellow.jpg');">
-  <!-- <div class="home-columns home-columns--map container antialiased">
-    <squarespace:block-field id="blue-section" label="Text + Map" columns="12" lock-layout="true" />
-  </div> -->
+  <div class="home-columns home-columns--blog container">
+    <div class="copy copy--large copy--light copy--antialiased">
+      <h2>Latest News</h2>
+    </div>
+    <div class="blog-posts-preview">
+    <squarespace:query collection="blog-and-news" limit="3">
+      {.repeated section items}
+        <div class="blog-posts-preview__post">
+          <a href="{fullUrl}">
+            <img src="{assetUrl}">
+          </a>
+          <div class="copy copy--light copy--antialiased">
+            <h2>{title}</h2>
+            <p>{body|safe|truncate 200}</p>
+          </div>
+          <a href="{fullUrl}" class="button button--filled-white">READ MORE</a>
+        </div>
+      {.end}
+    </squarespace:query>
+  </div>
 </div>

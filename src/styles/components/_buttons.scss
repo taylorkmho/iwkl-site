@@ -6,6 +6,7 @@
   letter-spacing: 1px;
   border-radius: 2px;
   text-transform: uppercase;
+  overflow: hidden;
   transition: background 150ms ease-out;
   &--filled {
     &-white {

@@ -1,13 +1,6 @@
 import controller from '@squarespace/controller';
-
-function HomeVideoPlayer(element) {
-  const caption = element.querySelector('.video-caption');
-
-  const handleClick = () => {
-    element.classList.add('splash__video--playing');
-  };
-
-  element.addEventListener('click', handleClick);
-}
+import { HomeVideoPlayer } from './components/home-player-video';
+import { Header } from './components/header';
 
 controller.register('HomeVideoPlayer', HomeVideoPlayer);
+controller.register('Header', Header);

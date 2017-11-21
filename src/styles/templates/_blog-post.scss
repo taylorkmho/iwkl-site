@@ -9,9 +9,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    filter: grayscale(100%);
-    background-blend-mode: overlay;
-    background-color: #bbb;
+    background-blend-mode: luminosity;
+    background-color: $c-yellow;
     background-size: cover;
     background-position: center center;
   }
@@ -22,7 +21,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba($c-yellow, .5);
+    background-color: rgba($c-yellow, .8);
   }
   &__copy {
     position: relative;
