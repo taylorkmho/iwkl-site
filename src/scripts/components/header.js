@@ -1,5 +1,5 @@
 export function Header(element) {
-  const targetClass = 'header__image';
+  const targetClass = 'header__bg';
   const image = element.querySelector(`.${targetClass}`);
   const imageHasBg = image.style.backgroundImage.includes('url');
 
