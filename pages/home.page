@@ -23,18 +23,18 @@
     <div class="copy copy--large copy--light copy--antialiased">
       <h2>Latest News</h2>
     </div>
-    <div class="blog-posts-preview">
+    <div class="blog-index">
     <squarespace:query collection="blog-and-news" limit="3">
       {.repeated section items}
-        <div class="blog-posts-preview__post">
-          <a href="{fullUrl}">
+        <div class="blog-index__post blog-index-post">
+          <a class="blog-index-post__image-link" href="{fullUrl}">
             <img src="{assetUrl}">
           </a>
           <div class="copy copy--light copy--antialiased">
-            <h2>{title}</h2>
-            <p>{body|safe|truncate 200}</p>
+            <h2 class="blog-index-post__headline">{title|truncate 64}</h2>
+            <p class="blog-index-post__excerpt">{body|safe|truncate 200}</p>
           </div>
-          <a href="{fullUrl}" class="button button--filled-white">READ MORE</a>
+          <a class="blog-index-post__cta button button--filled-white" href="{fullUrl}">READ MORE</a>
         </div>
       {.end}
     </squarespace:query>
