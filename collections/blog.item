@@ -3,13 +3,17 @@
   {.if assetUrl}
     <header class="header" data-controller="Header">
       <div class="header__bg" style="background-image: url('{assetUrl}');" data-focus-x="{mediaFocalPoint.x}" data-focus-y="{mediaFocalPoint.y}"></div>
-      <div class="header__copy container copy copy--light copy--large copy--antialiased">
-        <h1 class="header__title" data-content-field="title">{title}</h2>
-        <div class="header__meta h3">
-          <time datetime="{addedOn|date %F}" pubdate>{addedOn|date %b %G}</time>
-          {.section categories}{.repeated section @}<a href="{collection.fullUrl}?category={@|url-encode}" class="link link--body">{@}</a>{.alternates with},{.end}{.end}
+      <div class="header__content container">
+        <div class="header__copy copy copy--light copy--large copy--antialiased">
+          <h1 class="header__title" data-content-field="title">{title}</h2>
+          <div class="header__meta h3">
+            <time datetime="{addedOn|date %F}" pubdate>{addedOn|date %b %G}</time>
+            {.section categories}{.repeated section @}<a href="{collection.fullUrl}?category={@|url-encode}" class="link link--body">{@}</a>{.alternates with},{.end}{.end}
+          </div>
         </div>
-        <img class="header__image" src="{assetUrl}">
+        <div class="header__thumbnail">
+          <img class="header__image" src="{assetUrl}">
+        </div>
       </div>
     </header>
   {.or}

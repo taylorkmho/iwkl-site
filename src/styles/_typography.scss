@@ -65,6 +65,9 @@ h6,
       letter-spacing: 1px;
     }
   }
+  &--xlarge {
+    font-size: 1.125rem;
+  }
   &--light {
     color: #fff;
     a {
@@ -102,6 +105,9 @@ h6,
         font-size: 1.25rem;
         letter-spacing: 1px;
       }
+    }
+    &--xlarge {
+      font-size: 1.75rem;
     }
   }
 }

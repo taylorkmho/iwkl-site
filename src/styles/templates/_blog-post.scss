@@ -25,8 +25,6 @@
   }
   &__copy {
     position: relative;
-    padding-top: 10vw;
-    padding-bottom: 5vw;
     z-index: ($header-z + 10);
   }
   &__title {
@@ -42,6 +40,10 @@
       }
     }
   }
+  &__content {
+    padding-top: ($gutter*2);
+    padding-bottom: ($gutter*2);
+  }
   &__image {
     position: relative;
     bottom: (-$gutter*2);
@@ -49,24 +51,27 @@
     height: auto;
     width: 100%;
     max-width: 480px;
-    margin-bottom: -5vw;
+    margin-bottom: (-$gutter*2);
+    border-radius: $border-radius;
     box-shadow: $box-shadow-2;
   }
 }
 
 @media screen and (min-width: $container-query) {
   .header {
+    &__content {
+      display: flex;
+      align-items: center;
+      padding-top: 10vw;
+    }
+    &__thumbnail {
+      padding-left: ($gutter*2);
+    }
     &__image {
-      position: absolute;
       width: #{$container-width - $container-width--reading};
-      right: 0;
-      top: 10vw;
       bottom: auto;
-      margin-top: $gutter;
       margin-bottom: 0;
       max-width: initial;
-      transform: rotate(10deg);
-      transform-origin: bottom left;
     }
   }
 }

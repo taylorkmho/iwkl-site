@@ -1,42 +1,55 @@
 <div class="home-section home-section--red" style="background-image: url('/assets/bg--red.jpg');">
-  <div class="splash container copy copy--large copy--light copy--antialiased">
-    <div class="splash__video tt-up heading" data-controller="HomeVideoPlayer">
+  <div class="splash container">
+    <div class="splash__video tt-up heading copy copy--large copy--light copy--antialiased" data-controller="HomeVideoPlayer">
       <squarespace:block-field id="splash-video" label="Home video" columns="1" lock-layout="true" />
     </div>
   </div>
 </div>
 
 <div class="home-section home-section--green" style="background-image: url('/assets/bg--green.jpg');">
-  <div class="home-columns container copy copy--large copy--light copy--antialiased">
-    <squarespace:block-field id="green-section" label="Text + Gallery" columns="12" lock-layout="true" />
+  <div class="home-columns container">
+    <div class="copy copy--large copy--light copy--antialiased">
+      <squarespace:block-field id="green-section" label="Text + Gallery" columns="12" lock-layout="true" />
+    </div>
   </div>
 </div>
 
 <div class="home-section home-section--blue" style="background-image: url('/assets/bg--blue.jpg');">
-  <div class="home-columns home-columns--map container copy copy--large copy--light copy--antialiased">
-    <squarespace:block-field id="blue-section" label="Text + Map" columns="12" lock-layout="true" />
+  <div class="home-columns home-columns--map container">
+    <div class="copy copy--large copy--light copy--antialiased">
+      <squarespace:block-field id="blue-section" label="Text + Map" columns="12" lock-layout="true" />
+    </div>
   </div>
 </div>
 
 <div class="home-section home-section--yellow" style="background-image: url('/assets/bg--yellow.jpg');">
-  <div class="home-columns home-columns--blog container">
-    <div class="copy copy--large copy--light copy--antialiased">
-      <h2>Latest News</h2>
-    </div>
-    <div class="blog-index">
-    <squarespace:query collection="blog-and-news" limit="3">
-      {.repeated section items}
-        <div class="blog-index__post blog-index-post">
-          <a class="blog-index-post__image-link" href="{fullUrl}">
-            <img src="{assetUrl}">
-          </a>
-          <div class="copy copy--light copy--antialiased">
-            <h2 class="blog-index-post__headline">{title|truncate 64}</h2>
-            <p class="blog-index-post__excerpt">{body|safe|truncate 200}</p>
+    <div class="home-columns home-columns--blog container">
+      <div class="copy copy--large copy--light copy--antialiased">
+        <h2>Latest News</h2>
+      </div>
+      <div class="blog-index">
+      <squarespace:query collection="blog-and-news" limit="3">
+        {.repeated section items}
+          <div class="blog-index__post blog-index-post">
+            <a class="blog-index-post__image-link" href="{fullUrl}">
+              <img src="{assetUrl}">
+            </a>
+            <div class="copy copy--light copy--antialiased">
+              <h2 class="blog-index-post__headline">{title|truncate 64}</h2>
+              <p class="blog-index-post__excerpt">{body|safe|truncate 200}</p>
+            </div>
+            <a class="blog-index-post__cta button button--filled-white" href="{fullUrl}">READ MORE</a>
           </div>
-          <a class="blog-index-post__cta button button--filled-white" href="{fullUrl}">READ MORE</a>
-        </div>
-      {.end}
-    </squarespace:query>
+        {.end}
+      </squarespace:query>
+    </div>
+  </div>
+</div>
+
+<div class="home-section home-section--grain home-section--y-small" style="background-image: url('/assets/bg--grain.jpg');">
+  <div class="home-blockquote container">
+    <div class="copy copy--xlarge">
+      <squarespace:block-field id="blockquote-section" label="Blockquote section" columns="12" />
+    </div>
   </div>
 </div>
