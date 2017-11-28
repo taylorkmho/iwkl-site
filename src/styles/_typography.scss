@@ -42,6 +42,9 @@ h6,
       background-color: rgba($c-body, .75);
     }
   }
+  &--small {
+    font-size: 0.875rem;
+  }
   &--large {
     font-size: 1.125rem;
     line-height: 2;

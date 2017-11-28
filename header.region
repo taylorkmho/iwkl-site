@@ -23,7 +23,7 @@
           {.end}
         </a>
       {.end}
-      <div class="nav__items">
+      <div class="nav__items copy copy--light">
         <squarespace:navigation navigationId="primary-nav" template="navigation" />
       </div>
     </div>

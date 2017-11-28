@@ -1,9 +1,26 @@
-  <footer>
-    <squarespace:block-field id="footer-blocks" columns="12" />
-  </footer>
+<footer class="footer">
+  <div class="container">
+    {.section website}
+      <a class="footer__logo" href="/" data-content-field="site-title">
+        {.if logoImageUrl}
+          <img src="{logoImageUrl}?format=original" alt="{siteTitle}" />
+        {.or}
+          {@|apply logo.block}
+        {.end}
+      </a>
+    {.end}
+    <div class="footer__nav copy copy--light copy--small">
+      <squarespace:navigation navigationId="primary-nav" template="navigation" />
+    </div>
+    <div class="footer__copyright copy copy--light copy--small">
+      <squarespace:block-field id="footer-copyright" label="Copyright" columns="12" />
+    </div>
 
-  <script type="text/javascript" src="/scripts/site-bundle.js"></script>
+  </div>
+</footer>
 
-  {squarespace-footers}
+<script type="text/javascript" src="/scripts/site-bundle.js"></script>
+
+{squarespace-footers}
 
 </body>
