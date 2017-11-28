@@ -5,20 +5,9 @@ $nav-z: 1000;
   padding: ($gutter*3) 0 0;
   z-index: $nav-z;
 
-  // .collection-type-blog & {
-  //   position: relative;
-  //   padding: ($gutter*3) 0;
-  // }
-
   &__container {
     display: flex;
   }
-
-  // &__logo svg path {
-  //   .collection-type-blog & {
-  //     fill: #000;
-  //   }
-  // }
 
   &__items {
     display: flex;
@@ -28,10 +17,6 @@ $nav-z: 1000;
 
     a {
       color: #fff;
-
-      // .collection-type-blog & {
-      //   color: #000;
-      // }
     }
   }
 }

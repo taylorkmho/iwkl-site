@@ -46,7 +46,6 @@ $max-width--video: 860px;
 
   &__video {
     box-shadow: $box-shadow-2;
-    // TODO: add hover to show icon background
     .sqs-video-wrapper {
       border-radius: $border-radius;
       overflow: hidden;
@@ -124,10 +123,23 @@ $max-width--video: 860px;
         .sqs-video-icon {
           top: auto;
           bottom: $gutter;
-          background-color: transparent;
+          background-color: rgba(#fff, 0);
+          transition: 300ms ease-out background;
           &:before,
           &:after {
-            background-color: transparent;
+            background-color: rgba(#fff, 0);
+            transition: 300ms ease-out background;
+          }
+        }
+        &:hover {
+          .sqs-video-icon {
+            background-color: rgba(#fff, .125);
+            transition-duration: 150ms;
+            &:before,
+            &:after {
+              background-color: rgba(#fff, .125);
+              transition-duration: 150ms;
+            }
           }
         }
        }
