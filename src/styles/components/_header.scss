@@ -1,22 +1,126 @@
 $nav-z: 1000;
-.nav {
+$nav-transition-dur: 250ms;
+.top-bar {
   position: absolute;
   width: 100%;
-  padding: ($gutter*3) 0 0;
+  padding: $gutter 0;
   z-index: $nav-z;
 
-  &__container {
-    display: flex;
+  &__logo {
+    margin-right: $gutter;
+    svg, img {
+      max-height: ($gutter * 1.5);
+      width: auto;
+    }
   }
 
-  &__items {
-    display: flex;
-    flex-grow: 1;
-    flex-direction: row-reverse;
-    align-items: center;
+  // top-bar.js - added via Javascript
+  &__button {
+    position: absolute;
+    top: 18px;
+    right: $gutter;
+    display: block;
+    height: 20px;
+    width: 30px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    color: transparent;
+    outline: 0;
+    cursor: pointer;
+    background-image: url('/assets/icon--hamburger.svg');
+    background-size: 100% 100%;
+    user-select: none;
+  }
 
-    a {
-      color: #fff;
+  &--mobile {
+    position: fixed;
+    background-color: $c-red;
+    border-bottom: 2px solid darken($c-red, 5%);
+    height: #{$gutter * 3.5};
+    padding: 0;
+    overflow: hidden;
+    transition: height $nav-transition-dur ease-in-out;
+
+    &:after {
+      content: "";
+      position: absolute;
+      background-color: darken($c-red, 5%);
+      top: #{$gutter * 3.5};
+      height: 100%;
+      width: 100%;
+    }
+
+    .top-bar {
+      &__logo {
+        position: relative;
+        display: inline-block;
+        padding: $gutter 0;
+        z-index: #{$nav-z + 50};
+      }
+      &__items {
+        position: relative;
+        z-index: #{$nav-z + 50};
+        margin: 0 (-$gutter);
+        transform: translateY((-$gutter));
+        pointer-events: none;
+        opacity: 0;
+        transition: all $nav-transition-dur ease-out ($nav-transition-dur/2);
+        nav {
+          display: flex;
+          flex-direction: column;
+          padding: ($gutter*2) $gutter;
+        }
+        a {
+          display: inline-block;
+          font-size: 1.5rem;
+          text-decoration: none;
+          margin-bottom: $gutter;
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+    &.top-bar--active {
+      height: 100vh;
+      .top-bar {
+        &__items {
+          pointer-events: initial;
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $nav-query) {
+  .top-bar {
+    padding: ($gutter*3) 0 0;
+    &__container {
+      display: flex;
+    }
+    &__logo {
+      svg, img {
+        max-height: ($gutter*2);
+      }
+    }
+    &__items {
+      display: flex;
+      flex-grow: 1;
+      flex-direction: row-reverse;
+      align-items: center;
+      a {
+        display: inline-block;
+        margin-right: $gutter;
+        font-size: .75rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
     }
   }
 }

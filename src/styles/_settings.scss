@@ -6,6 +6,9 @@ $container-width--reading:  780px;
 $mobile-width:              640px;
 $mobile-query:              $mobile-width + ($gutter * 2);
 $mobile-query-max:          $mobile-width + ($gutter * 2) - 1;
+$nav-width:                 786px; // guess
+$nav-query:                 $nav-width + ($gutter * 2);
+$nav-query-max:             $nav-width + ($gutter * 2) - 1;
 
 // TYPOGRAPHY
 $line-height-body:          1.6;

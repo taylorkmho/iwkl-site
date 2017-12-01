@@ -1,4 +1,4 @@
-.header {
+.blog-header {
   $header-z: 900;
   position: relative;
   padding-top: 6rem;
@@ -44,21 +44,23 @@
     padding-top: ($gutter*2);
     padding-bottom: ($gutter*2);
   }
+  &__thumbnail {
+    margin-top: ($gutter*2);
+  }
   &__image {
     position: relative;
-    bottom: (-$gutter*2);
     z-index: ($header-z + 20);
     height: auto;
     width: 100%;
     max-width: 480px;
-    margin-bottom: (-$gutter*2);
+    margin-bottom: (-$gutter*4);
     border-radius: $border-radius;
     box-shadow: $box-shadow-2;
   }
 }
 
 @media screen and (min-width: $container-query) {
-  .header {
+  .blog-header {
     &__content {
       display: flex;
       align-items: center;

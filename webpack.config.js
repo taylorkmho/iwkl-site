@@ -45,7 +45,12 @@ const config = {
     new ExtractTextPlugin({
       filename: './styles/app.css'
     })
-  ]
+  ],
+  resolve: {
+    alias: {
+      vue: 'vue/dist/vue.js'
+    }
+  }
 }
 
 module.exports = config;

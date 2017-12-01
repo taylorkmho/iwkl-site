@@ -11,11 +11,10 @@
 </head>
 
 <body id="{squarespace.page-id}" class="{squarespace.page-classes}">
-
-  <nav class="nav">
-    <div class="nav__container container">
+  <header class="top-bar" id="top-bar">
+    <div class="top-bar__container container">
       {.section website}
-        <a class="nav__logo" href="/" data-content-field="site-title">
+        <a class="top-bar__logo" href="/" data-content-field="site-title">
           {.if logoImageUrl}
             <img src="{logoImageUrl}?format=original" alt="{siteTitle}" />
           {.or}
@@ -23,8 +22,9 @@
           {.end}
         </a>
       {.end}
-      <div class="nav__items copy copy--light">
-        <squarespace:navigation navigationId="primary-nav" template="navigation" />
+      <div class="top-bar__items copy copy--light">
+        <squarespace:navigation navigationId="primary-nav" template="navigation"/>
       </div>
+      <menu-button v-on:toggle-menu="toggleMenu" v-show="isMobile"></menu-button>
     </div>
-  </nav>
+  </header>
