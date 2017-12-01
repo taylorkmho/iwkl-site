@@ -13,10 +13,12 @@
 @import './_typography';
 
 // COMPONENTS
-@import './components/_header';
+@import './components/_top-bar';
 @import './components/_footer';
 @import './components/_buttons';
+@import './components/_grant-map';
 @import './components/_blog-index';
+@import './components/_masthead';
 
 // TEMPLATES
 @import './templates/_home';

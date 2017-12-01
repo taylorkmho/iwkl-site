@@ -1,9 +1,10 @@
 import Vue from 'vue';
+import { config } from '../config.js';
 
 export class TopBarMenu {
   constructor() {
     const TARGET_CLASS = 'top-bar';
-    const MEDIA_QUERY = '(max-width: 817px)';
+    const MEDIA_QUERY = config.mediaQuery;
 
     const MenuButton = {
       template: `<button v-on:click="toggleMenu" class="${TARGET_CLASS}__button">MENU</button>`,

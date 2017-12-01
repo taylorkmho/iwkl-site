@@ -1,18 +1,18 @@
 {.section item}
 <div class="blog-post" data-content-field="main-content" data-item-id="{id}">
   {.if assetUrl}
-    <header class="blog-header" data-controller="BlogHeader">
-      <div class="blog-header__bg" style="background-image: url('{assetUrl}');" data-focus-x="{mediaFocalPoint.x}" data-focus-y="{mediaFocalPoint.y}"></div>
-      <div class="blog-header__content container">
-        <div class="blog-header__copy copy copy--light copy--large copy--antialiased">
-          <h1 class="blog-header__title" data-content-field="title">{title}</h2>
-          <div class="blog-header__meta h3">
+    <header class="masthead" data-controller="Masthead">
+      <div class="masthead__bg" style="background-image: url('{assetUrl}');" data-focus-x="{mediaFocalPoint.x}" data-focus-y="{mediaFocalPoint.y}"></div>
+      <div class="masthead__content container">
+        <div class="masthead__copy copy copy--light copy--large copy--antialiased">
+          <h1 class="masthead__title" data-content-field="title">{title}</h2>
+          <div class="masthead__meta h3">
             <time datetime="{addedOn|date %F}" pubdate>{addedOn|date %b %G}</time>
             {.section categories}{.repeated section @}<a href="{collection.fullUrl}?category={@|url-encode}" class="link link--body">{@}</a>{.alternates with},{.end}{.end}
           </div>
         </div>
-        <div class="blog-header__thumbnail">
-          <img class="blog-header__image" src="{assetUrl}">
+        <div class="masthead__thumbnail">
+          <img class="masthead__image" src="{assetUrl}">
         </div>
       </div>
     </header>

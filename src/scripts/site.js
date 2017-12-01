@@ -1,9 +1,10 @@
 import controller from '@squarespace/controller';
+import { Masthead } from './components/masthead';
+import { GrantMap } from './components/grant-map';
 import { HomeVideoPlayer } from './components/home-player-video';
-import { BlogHeader } from './components/blog-header';
 import { TopBarMenu } from './components/top-bar';
 
 let topBarMenu = new TopBarMenu;
 
 controller.register('HomeVideoPlayer', HomeVideoPlayer);
-controller.register('BlogHeader', BlogHeader);
+controller.register('Masthead', Masthead);
