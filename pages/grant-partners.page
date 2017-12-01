@@ -1,13 +1,24 @@
-<h1 data-content-field="title">{collection.title}</h1>
-
-<squarespace:block-field id="intro" label="Grant Partners intro" columns="1" lock-layout="true" />
-
+<header class="masthead masthead--blue masthead--overlap-btm">
+  <div class="masthead__bg" style="background-image: url('/assets/bg--blue.jpg');"></div>
+  <div class="masthead__content container">
+    <div class="masthead__copy copy copy--light copy--large copy--antialiased">
+      <h1 class="masthead__title" data-content-field="title">{collection.title}</h2>
+      <div class="masthead__meta h3">
+        <squarespace:block-field id="intro" label="Grant Partners intro" columns="1" lock-layout="true" />
+      </div>
+    </div>
+  </div>
+</header>
 {#
   Map solution:
     - Build array with 1-8 grant cycles
     - Generate map points using array
 }
-<p>[ MAP ]</p>
+<div class="grant-map">
+  <div class="grant-map__container container">
+    <div class="grant-map__map"></div>
+  </div>
+</div>
 
 {#
   List solution:

@@ -10,19 +10,9 @@
     width: 100%;
     height: 100%;
     background-blend-mode: luminosity;
-    background-color: $c-yellow;
     background-size: cover;
     background-position: center center;
     transition: background 2s ease-in-out 500ms;
-  }
-  &:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba($c-yellow, .8);
   }
   &__copy {
     position: relative;
@@ -57,6 +47,45 @@
     margin-bottom: (-$gutter*4);
     border-radius: $border-radius;
     box-shadow: $box-shadow-2;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &--yellow {
+    &.masthead--faded {
+      &:after {
+        background-color: rgba($c-yellow, .8);
+      }
+    }
+    .masthead {
+      &__bg {
+        background-color: $c-yellow;
+      }
+    }
+  }
+
+  &--blue {
+    &.masthead--faded {
+      &:after {
+        background-color: rgba($c-blue, .8);
+      }
+    }
+    .masthead {
+      &__bg {
+        background-color: $c-blue;
+      }
+    }
+  }
+
+  &--overlap-btm {
+    padding-bottom: ($gutter*8);
+    margin-bottom: (-$gutter*8);
   }
 }
 
