@@ -14,9 +14,17 @@
     - Build array with 1-8 grant cycles
     - Generate map points using array
 }
-<div class="grant-map">
+<div id="grant-map" class="grant-map">
   <div class="grant-map__container container">
-    <div class="grant-map__map"></div>
+    <div class="grant-map__map">
+      <google-map
+        :center="center"
+        :zoom="2"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+      >
+        <google-marker :key="i" v-for="(m,i) in markers" :position="m.position" :clickable="true" @click="toggleInfoWindow(m,i)"></google-marker>
+      </google-map>
+    </div>
   </div>
 </div>
 

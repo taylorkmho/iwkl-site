@@ -6,6 +6,10 @@ export class TopBarMenu {
     const TARGET_CLASS = 'top-bar';
     const MEDIA_QUERY = config.mediaQuery;
 
+    if (document.querySelector(`.${TARGET_CLASS}`) === null) {
+      return;
+    }
+
     const MenuButton = {
       template: `<button v-on:click="toggleMenu" class="${TARGET_CLASS}__button">MENU</button>`,
       methods: {

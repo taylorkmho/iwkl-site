@@ -5,6 +5,7 @@ import { HomeVideoPlayer } from './components/home-player-video';
 import { TopBarMenu } from './components/top-bar';
 
 let topBarMenu = new TopBarMenu;
+let grantMap = new GrantMap;
 
 controller.register('HomeVideoPlayer', HomeVideoPlayer);
 controller.register('Masthead', Masthead);
