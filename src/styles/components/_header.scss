@@ -35,8 +35,8 @@ $nav-transition-dur: 250ms;
 
   &--mobile {
     position: fixed;
-    background-color: $c-red;
-    border-bottom: 2px solid darken($c-red, 5%);
+    background-color: $c-brand;
+    border-bottom: 2px solid darken($c-brand, 5%);
     height: #{$gutter * 3.5};
     padding: 0;
     overflow: hidden;
@@ -45,7 +45,7 @@ $nav-transition-dur: 250ms;
     &:after {
       content: "";
       position: absolute;
-      background-color: darken($c-red, 5%);
+      background-color: darken($c-brand, 5%);
       top: #{$gutter * 3.5};
       height: 100%;
       width: 100%;

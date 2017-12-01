@@ -45,9 +45,9 @@ $max-width--video: 860px;
   @extend %sq-no-padding;
 
   &__video {
-    box-shadow: $box-shadow-2;
     .sqs-video-wrapper {
       border-radius: $border-radius;
+      box-shadow: $box-shadow-2;
       overflow: hidden;
       .sqs-video-icon {
         background-color: rgba(#000, .25);
@@ -118,7 +118,7 @@ $max-width--video: 860px;
         }
       }
       .sqs-video-wrapper {
-         background-color: desaturate(darken($c-red, 20%), 20%);
+         background-color: rgba($c-red, .25);
 
         .sqs-video-icon {
           top: auto;
@@ -162,7 +162,7 @@ $max-width--video: 860px;
     &__video {
       .video-caption-wrapper {
         padding: 0;
-        margin: 0 (-$gutter*3);
+        margin: 0 (-$gutter*4);
         p {
           font-size: 2.5rem;
           letter-spacing: 3px;
