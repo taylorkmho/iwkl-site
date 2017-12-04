@@ -22,7 +22,14 @@
         :zoom="2"
         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
       >
-        <google-marker :key="i" v-for="(m,i) in markers" :position="m.position" :clickable="true" @click="toggleInfoWindow(m,i)"></google-marker>
+        <google-marker
+          :key="i"
+          v-for="(m,i) in markers"
+          :position="m.position"
+          :clickable="true"
+          @click="toggleInfoWindow(m,i)"
+          :icon="m.icon"
+        ></google-marker>
       </google-map>
     </div>
   </div>

@@ -1,14 +1,14 @@
 import axios from 'axios';
 import Vue from 'vue';
-import * as VueGoogleMaps from 'vue2-google-maps'
-import { config } from '../config.js';
+import * as VueGoogleMaps from 'vue2-google-maps';
+import { config } from '../config';
 
 export class GrantMap {
   constructor() {
     this.targetClass = 'grant-map';
     this.grantCycles = config.grantCycles;
     const MEDIA_QUERY = config.mediaQuery;
-    const API_KEY = 'AIzaSyARpLGAWtpKWkMJCPZy42oivTtJowJfzMg';
+    const API_KEY = config.googleMapsKey;
 
     if (document.querySelector(`.${this.targetClass}`) === null) {
       return;
@@ -17,7 +17,6 @@ export class GrantMap {
     Vue.use(VueGoogleMaps, {
       load: {
         key: API_KEY,
-        libraries: 'places',
         installComponents: false
       }
     })
@@ -31,49 +30,53 @@ export class GrantMap {
       el: `#${this.targetClass}`,
       data: {
         center: {
-          lat: 33.1929123,
-          lng: -66.627005
+          lat: 33.062464,
+          lng: 21.282761
         },
         markers: []
+      },
+      mounted: () => {
+        this.getMarkers();
       }
     });
-
-    this.fetchGrantCycles();
   }
-  fetchGrantCycles() {
+  getMarkers() {
     if (this.grantCycles.length === 0) { return };
 
-    this.grantCycles.forEach( (grantCycle) => {
-      axios.get(`https://taylor-ho-28z3.squarespace.com/${grantCycle}?format=json`)
-        .then( (response) => {
-          const data = response.data;
+    axios.all(this.grantCycles.map(urlId => axios.get(`https://taylor-ho-28z3.squarespace.com/${urlId}?format=json`)))
+      .then((responses) => {
+        const markerArrs = responses
+          .filter(response => !response.data.empty)
+          .sort((a, b) => {
+            const current = a.data.collection.urlId;
+            const next = b.data.collection.urlId;
 
-          if (data.empty) { return };
-
-          data.items.forEach( (item) => {
-            const squarespaceDefaultLocation = {
-              mapLat: 40.721,
-              mapLng: -74.001
-            }
-            const newMarker = {
-              position: {
-                lng: item.location.mapLng,
-                lat: item.location.mapLat
-              }
-            };
-            const isDefaultLocation = item.location.mapLat.toFixed(3) == squarespaceDefaultLocation.mapLat && item.location.mapLng.toFixed(3) == squarespaceDefaultLocation.mapLng;
-
-            if (isDefaultLocation) {
-              return;
-            }
-
-            Vue.set(this.mapApp.markers, this.mapApp.markers.length, newMarker);
+            return current.localeCompare(next);
           })
+          .map((response, i, arr) => {
+            const items = response.data.items;
+            const isRecent = (i === arr.length - 1);
 
-        })
-        .catch( function(error) {
-          console.log(error);
-        });
-    })
+            return items.map((item) => {
+              return {
+                position: {
+                  lng: item.location.mapLng,
+                  lat: item.location.mapLat
+                },
+                icon: isRecent ? `/assets/icon-map-marker--current.png` : `/assets/icon-map-marker.png`
+              }
+            })
+          });
+
+        const markers = [].concat(...markerArrs);
+
+        Vue.set(this.mapApp, 'markers', markers);
+      })
+    .catch((error) => {
+      this.handleError(error);
+    });
+  }
+  handleError(error) {
+    console.log(error);
   }
 };
