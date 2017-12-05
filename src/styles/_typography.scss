@@ -6,6 +6,8 @@ body {
 body, .body {
   font-family: 'Libre Franklin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 400;
+  color: $c-body;
+  text-transform: inherit;
 }
 
 h1, .h1,
@@ -22,7 +24,6 @@ h6,
 }
 
 .copy {
-  color: $c-body;
   a {
     position: relative;
     text-decoration: none;
@@ -71,6 +72,11 @@ h6,
   &--xlarge {
     font-size: 1.125rem;
   }
+  &--action {
+    font-size: .75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
   &--light {
     color: #fff;
     a {
@@ -86,6 +92,12 @@ h6,
   &--antialiased {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+  &--nowrap {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 

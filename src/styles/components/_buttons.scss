@@ -1,11 +1,9 @@
 .button {
+  @extend .copy--action;
   display: inline-block;
   text-decoration: none;
   padding: ($gutter/2) $gutter;
-  font-size: .75rem;
-  letter-spacing: 1px;
   border-radius: 2px;
-  text-transform: uppercase;
   overflow: hidden;
   transition: background 150ms ease-out;
   &--filled {

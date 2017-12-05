@@ -1,6 +1,6 @@
 import controller from '@squarespace/controller';
-import { Masthead } from './components/masthead';
-import { GrantMap } from './components/grant-map';
+import { Masthead } from './components/MastHead';
+import { GrantMap } from './components/GrantMap';
 import { HomeVideoPlayer } from './components/home-player-video';
 import { TopBarMenu } from './components/top-bar';
 

@@ -1,11 +1,51 @@
-.grant-map {
-  &__map {
-    background-color: $c-blue;
+$map-z: 500;
+.map {
+  position: relative;
+  background-color: $c-map--bg;
+  width: 100%;
+  height: 0;
+  padding-bottom: 60%;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow-2;
+  overflow: hidden;
+  &__popup {
+    position: absolute;
+    bottom: ($gutter*2);
+    left: $gutter;
+    z-index: ($map-z + 10);
+  }
+}
+
+.grant-map-popup {
+  width: 240px;
+  max-width: 100%;
+  background-color: #fff;
+  border-radius: $border-radius;
+  overflow: hidden;
+  box-shadow: $box-shadow-2;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all 250ms ease-out;
+  transition-property: opacity, transform;
+  &__image {
     width: 100%;
-    height: 0;
-    padding-bottom: 60%;
-    border-radius: $border-radius;
-    box-shadow: $box-shadow-2;
-    overflow: hidden;
+    padding-bottom: 56.25%;
+    background-color: #eee;
+    background-size: cover;
+    background-position: center center;
+  }
+  &__copy {
+    padding: $gutter;
+  }
+  &__title {
+    margin: 0 0 ($gutter/4);
+  }
+  &__subtitle {
+    color: $c-hint;
+    margin: 0;
+  }
+  &--visible {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
