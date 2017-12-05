@@ -3,9 +3,11 @@
   display: inline-block;
   text-decoration: none;
   padding: ($gutter/2) $gutter;
-  border-radius: 2px;
+  border-radius: $border-radius-1;
   overflow: hidden;
   transition: background 150ms ease-out;
+  border: 0;
+  outline: none;
   &--filled {
     &-white {
       color: #000;
@@ -14,5 +16,17 @@
         background-color: rgba(#fff, .9);
       }
     }
+  }
+  &--nofill {
+    &-blue {
+      color: $c-blue;
+      font-weight: 600;
+      &:hover {
+        background-color: rgba(#000, .05);
+      }
+    }
+  }
+  &--small {
+    padding: ($gutter/4) ($gutter/2);
   }
 }

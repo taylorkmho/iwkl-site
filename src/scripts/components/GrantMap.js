@@ -50,7 +50,7 @@ export class GrantMap {
         popup: {
           country: '',
           title: '',
-          assetUrl: '',
+          grantCycleTitle: '',
           isVisible: false
         }
       },
@@ -71,7 +71,7 @@ export class GrantMap {
           this.popup = {
             country: marker.country,
             title: marker.title,
-            assetUrl: marker.assetUrl,
+            grantCycleTitle: marker.grantCycleTitle,
             isVisible: true,
           }
         }
@@ -94,6 +94,7 @@ export class GrantMap {
           .map((response, i, arr) => {
             const items = response.data.items;
             const isRecent = (i === arr.length - 1);
+            const grantCycleTitle = response.data.collection.title;
 
             return items.map((item) => {
               return {
@@ -104,7 +105,7 @@ export class GrantMap {
                 },
                 country: item.customContent.country,
                 title: item.title,
-                assetUrl: item.assetUrl
+                grantCycleTitle: grantCycleTitle
               }
             })
           });

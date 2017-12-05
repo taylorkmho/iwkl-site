@@ -22,10 +22,12 @@ $c-blue:                    #2a829f;
 $c-yellow:                  #f7c22c;
 $c-offwhite:                #fcfbf8;
 $c-map--bg:                 #acbcc9;
-$c-body:                    #222;
-$c-hint:                    #bbb;
+$c-body:                    #585858;
+$c-hint:                    #797979;
 
 // STYLES
-$border-radius:             2px;
+$border-radius-1:           2px;
+$border-radius-2:           4px;
 $box-shadow-1:              0 10px 10px -5px rgba(#000000, .25);
 $box-shadow-2:              0 20px 20px -15px rgba(#000000, .25);
+$box-shadow-3:              0 20px 20px -15px rgba(#000000, .1);

@@ -37,7 +37,7 @@
         <grant-map-popup
           :country="popup.country"
           :title="popup.title"
-          :asset-url="popup.assetUrl"
+          :grant-cycle-title="popup.grantCycleTitle"
           :is-visible="popup.isVisible">
         </grant-map-popup>
       </div>

@@ -1,12 +1,13 @@
 export const GrantMapPopup = {
   template: `
     <div class="grant-map-popup" :class="{ 'grant-map-popup--visible': isVisible }">
-      <header class="grant-map-popup__image" :style="{backgroundImage: 'url(' + assetUrl + ')' }"></header>
-      <main class="grant-map-popup__copy">
-        <h3 class="grant-map-popup__title copy--nowrap" v-text="title"></h3>
-        <h5 class="grant-map-popup__subtitle copy--nowrap" v-text="country"></h5>
+      <main>
+        <p class="grant-map-popup__grant-cycle copy--small" v-text="grantCycleTitle"></p>
+        <h3 class="grant-map-popup__title" v-text="title"></h3>
+        <p class="grant-map-popup__country copy--small" v-text="country"></p>
+        <button class="grant-map-popup__link button button--nofill-blue button--small">LEARN MORE</button>
       </main>
     </div>
   `,
-  props: [ 'country', 'isVisible', 'title', 'assetUrl' ]
+  props: [ 'country', 'isVisible', 'title', 'grantCycleTitle' ]
 }

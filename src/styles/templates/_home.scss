@@ -46,7 +46,7 @@ $max-width--video: 860px;
 
   &__video {
     .sqs-video-wrapper {
-      border-radius: $border-radius;
+      border-radius: $border-radius-1;
       box-shadow: $box-shadow-2;
       overflow: hidden;
       .sqs-video-icon {
@@ -209,7 +209,7 @@ $max-width--video: 860px;
   }
   .sqs-gallery {
     img {
-      border-radius: $border-radius;
+      border-radius: $border-radius-1;
       box-shadow: $box-shadow-1;
     }
   }
@@ -326,7 +326,7 @@ $max-width--video: 860px;
   }
   .image-block-wrapper {
     box-shadow: $box-shadow-1;
-    border-radius: $border-radius;
+    border-radius: $border-radius-1;
   }
 }
 
