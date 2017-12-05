@@ -48,7 +48,7 @@ export class GrantMap {
           styles: config.mapStyle
         },
         popup: {
-          country: '',
+          country: [],
           title: '',
           grantCycleTitle: '',
           isVisible: false
@@ -81,7 +81,7 @@ export class GrantMap {
           });
 
           this.popup = {
-            country: marker.country,
+            country: marker.country.split(', '),
             title: marker.title,
             grantCycleTitle: marker.grantCycleTitle,
             isVisible: true,
