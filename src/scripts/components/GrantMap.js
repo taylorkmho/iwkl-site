@@ -54,14 +54,26 @@ export class GrantMap {
           isVisible: false
         }
       },
-      created: () => {
-        VueGoogleMaps.loaded
-          .then(() => this.apiLoaded = true)
-      },
       beforeMount: () => {
         this.getMarkers();
       },
+      mounted: function() {
+        VueGoogleMaps.loaded.then(() => this.apiLoaded = true);
+      },
       methods: {
+        handlePopupClose: function() {
+          if (!this.popup.isVisible) return;
+          this.popup.isVisible = false;
+
+          setTimeout(function() {
+            this.popup = {
+              country: '',
+              title: '',
+              grantCycleTitle: '',
+              isVisible: false
+            }
+          }, 250);
+        },
         handleMarkerClick: function(marker, idx) {
           this.$refs.gMap.panTo({
             lat: marker.position.lat,

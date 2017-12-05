@@ -21,6 +21,7 @@
         :center="center"
         :zoom="2"
         :options="options"
+        v-on:dragstart="handlePopupClose"
         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
         ref="gMap">
         <google-marker
