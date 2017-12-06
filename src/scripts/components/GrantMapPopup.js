@@ -12,7 +12,9 @@ export const GrantMapPopup = {
             v-text="c">
           </li>
         </ul>
-        <button class="grant-map-popup__link button button--nofill-blue button--small">LEARN MORE</button>
+        <!-- TODO: Add modal to GrantMapPopup
+          <button class="grant-map-popup__link button button--nofill-blue button--small">LEARN MORE</button>
+        -->
       </main>
       <main v-else>
         <div class="grant-map-popup__status">
