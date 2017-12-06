@@ -1,12 +1,33 @@
 {.if items}
   <div class="grant-list">
-    {.section collection}
-      <h4 class="grant-list__title">{title}</h4>
-      <h5 class="grant-list__description">{description}</h5>
-    {.end}
-    <ul class="grant-list__list">
-      {.repeated section items}
-        <li><a href="{fullUrl}">{title}</a></li>
+    <div class="grant-list__container container">
+      {.section collection}
+      <div class="grant-list__copy">
+        <h2 class="grant-list__title">{title}</h2>
+        {.if description}
+          <div class="copy--large">
+            <p class="grant-list__description">{description}</p>
+          </div>
+        {.end}
+      </div>
       {.end}
-    </ul>
+      <div class="grant-list__list">
+        {.repeated section items}
+          <div class="grant-list-item">
+            {.if assetUrl}
+            <header class="grant-list-item__image" style="background-image: url({assetUrl});"></header>
+            {.or}
+            <header class="grant-list-item__image"></header>
+            {.end}
+            <main class="grant-list-item__copy copy--antialiased">
+              <h5 class="grant-list-item__label">GRANT NAME</h5>
+              <p class="grant-list-item__title">{title}</p>
+              <h5 class="grant-list-item__label">COUNTRIES</h5>
+              <span class="grant-list-item__country">{customContent.country}</span>
+            </main>
+          </div>
+        {.end}
+      </div>
+    </div>
+  </div>
 {.end}

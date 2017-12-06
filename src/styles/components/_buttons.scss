@@ -25,6 +25,13 @@
         background-color: rgba(#000, .05);
       }
     }
+    &-white {
+      color: #fff;
+      font-weight: 600;
+      &:hover {
+        background-color: rgba(#000, .05);
+      }
+    }
   }
   &--small {
     padding: ($gutter/4) ($gutter/2);
