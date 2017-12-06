@@ -57,27 +57,7 @@
     - If they build beyond 8 cycles, they need to reach
       out and we can expand on the website.
 }
-<squarespace:query collection="grant-cycle-1">
-  {@|apply grant-cycle-list.block}
-</squarespace:query>
-
-<squarespace:query collection="grant-cycle-2">
-  {@|apply grant-cycle-list.block}
-</squarespace:query>
-
-<squarespace:query collection="grant-cycle-3">
-  {@|apply grant-cycle-list.block}
-</squarespace:query>
-
-<squarespace:query collection="grant-cycle-4">
-  {@|apply grant-cycle-list.block}
-</squarespace:query>
-
-<squarespace:query collection="grant-cycle-5">
-  {@|apply grant-cycle-list.block}
-</squarespace:query>
-
-<squarespace:query collection="grant-cycle-6">
+<squarespace:query collection="grant-cycle-8">
   {@|apply grant-cycle-list.block}
 </squarespace:query>
 
@@ -85,6 +65,26 @@
   {@|apply grant-cycle-list.block}
 </squarespace:query>
 
-<squarespace:query collection="grant-cycle-8">
+<squarespace:query collection="grant-cycle-6">
+  {@|apply grant-cycle-list.block}
+</squarespace:query>
+
+<squarespace:query collection="grant-cycle-5">
+  {@|apply grant-cycle-list.block}
+</squarespace:query>
+
+<squarespace:query collection="grant-cycle-4">
+  {@|apply grant-cycle-list.block}
+</squarespace:query>
+
+<squarespace:query collection="grant-cycle-3">
+  {@|apply grant-cycle-list.block}
+</squarespace:query>
+
+<squarespace:query collection="grant-cycle-2">
+  {@|apply grant-cycle-list.block}
+</squarespace:query>
+
+<squarespace:query collection="grant-cycle-1">
   {@|apply grant-cycle-list.block}
 </squarespace:query>

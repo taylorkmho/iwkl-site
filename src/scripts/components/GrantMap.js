@@ -66,7 +66,7 @@ export class GrantMap {
         getMarkers: function() {
           if (this.grantCycles.length === 0) { return };
 
-          axios.all(this.grantCycles.map(urlId => axios.get(`https://taylor-ho-28z3.squarespace.com/${urlId}?format=json`)))
+          axios.all(this.grantCycles.map(urlId => axios.get(`/${urlId}?format=json`)))
             .then((responses) => {
               const markerArrs = responses
                 .filter(response => !response.data.empty)
