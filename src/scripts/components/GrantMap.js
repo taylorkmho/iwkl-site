@@ -6,18 +6,13 @@ import { GrantMapPopup } from './GrantMapPopup';
 
 export class GrantMap {
   constructor() {
-    this.targetId = '#grant-map';
-    this.grantCycles = config.grantCycles;
-    const MEDIA_QUERY = config.mediaQuery;
-    const API_KEY = config.googleMapsKey;
-
-    if (document.querySelector(this.targetId) === null) {
+    if (document.querySelector('#grant-map') === null) {
       return;
     }
 
     Vue.use(VueGoogleMaps, {
       load: {
-        key: API_KEY,
+        key: config.googleMapsKey,
         installComponents: false
       }
     })
@@ -29,14 +24,15 @@ export class GrantMap {
   }
 
   initVue() {
-    this.mapApp = new Vue({
-      el: this.targetId,
+    new Vue({
+      el: '#grant-map',
       data: {
         apiLoaded: false,
         center: {
           lat: 33.062464,
           lng: 21.282761
         },
+        grantCycles: config.grantCycles,
         markers: [],
         options: {
           backgroundColor: '#acbcc9',
@@ -54,13 +50,54 @@ export class GrantMap {
           isVisible: false
         }
       },
-      beforeMount: () => {
-        this.getMarkers();
-      },
       mounted: function() {
-        VueGoogleMaps.loaded.then(() => this.apiLoaded = true);
+        VueGoogleMaps.loaded.then(() => {
+          this.apiLoaded = true;
+          this.getMarkers();
+        });
       },
       methods: {
+        getMarkers: function() {
+          if (this.grantCycles.length === 0) { return };
+
+          axios.all(this.grantCycles.map(urlId => axios.get(`https://taylor-ho-28z3.squarespace.com/${urlId}?format=json`)))
+            .then((responses) => {
+              const markerArrs = responses
+                .filter(response => !response.data.empty)
+                .sort((a, b) => {
+                  const current = a.data.collection.urlId;
+                  const next = b.data.collection.urlId;
+
+                  return current.localeCompare(next);
+                })
+                .map((response, i, arr) => {
+                  const items = response.data.items;
+                  const isRecent = (i === arr.length - 1);
+                  const grantCycleTitle = response.data.collection.title;
+
+                  return items.map((item) => {
+                    return {
+                      icon: isRecent ? `/assets/icon-map-marker--current.png` : `/assets/icon-map-marker.png`,
+                      position: {
+                        lng: item.location.mapLng,
+                        lat: item.location.mapLat
+                      },
+                      country: item.customContent.country,
+                      title: item.title,
+                      grantCycleTitle: grantCycleTitle
+                    }
+                  })
+                });
+
+              this.markers = [].concat(...markerArrs);
+            })
+            .catch((error) => {
+              this.handleError(error);
+            });
+        },
+        handleError: function(error) {
+          console.log(error);
+        },
         handlePopupClose: function() {
           if (!this.popup.isVisible) return;
           this.popup.isVisible = false;
@@ -88,49 +125,6 @@ export class GrantMap {
           }
         }
       }
-    });
-  }
-  getMarkers() {
-    if (this.grantCycles.length === 0) { return };
-
-    axios.all(this.grantCycles.map(urlId => axios.get(`https://taylor-ho-28z3.squarespace.com/${urlId}?format=json`)))
-      .then((responses) => {
-        const markerArrs = responses
-          .filter(response => !response.data.empty)
-          .sort((a, b) => {
-            const current = a.data.collection.urlId;
-            const next = b.data.collection.urlId;
-
-            return current.localeCompare(next);
-          })
-          .map((response, i, arr) => {
-            const items = response.data.items;
-            const isRecent = (i === arr.length - 1);
-            const grantCycleTitle = response.data.collection.title;
-
-            return items.map((item) => {
-              return {
-                icon: isRecent ? `/assets/icon-map-marker--current.png` : `/assets/icon-map-marker.png`,
-                position: {
-                  lng: item.location.mapLng,
-                  lat: item.location.mapLat
-                },
-                country: item.customContent.country,
-                title: item.title,
-                grantCycleTitle: grantCycleTitle
-              }
-            })
-          });
-
-        const markers = [].concat(...markerArrs);
-
-        Vue.set(this.mapApp, 'markers', markers);
-      })
-    .catch((error) => {
-      this.handleError(error);
-    });
-  }
-  handleError(error) {
-    console.log(error);
+    })
   }
 };
