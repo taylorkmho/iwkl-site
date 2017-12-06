@@ -88,3 +88,11 @@
 <squarespace:query collection="grant-cycle-1">
   {@|apply grant-cycle-list.block}
 </squarespace:query>
+
+<footer class="grant-application">
+  <div class="grant-application__container container">
+    <div class="copy copy--light copy--large copy--antialiased">
+      <squarespace:block-field id="application-process" label="Grant Application Process" columns="12" lock-layout="true" />
+    </div>
+  </div>
+</footer>
