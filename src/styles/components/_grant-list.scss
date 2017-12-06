@@ -15,21 +15,26 @@
     border-style: solid;
     border-left: none;
     border-right: none;
-    .grant-list:nth-of-type(4n+1) & {
-      $grant-list-color: $c-yellow;
-      border-color: $grant-list-color;
+
+    @each $color, $c-var in $map-colors {
+      &--#{$color} {
+        &.masthead--faded {
+          &:after {
+            background-color: rgba($c-var, .8);
+          }
+        }
+        .masthead {
+          &__bg {
+            background-color: $c-var;
+          }
+        }
+      }
     }
-    .grant-list:nth-of-type(4n+2) & {
-      $grant-list-color: $c-red;
-      border-color: $grant-list-color;
-    }
-    .grant-list:nth-of-type(4n+3) & {
-      $grant-list-color: $c-green;
-      border-color: $grant-list-color;
-    }
-    .grant-list:nth-of-type(4n+4) & {
-      $grant-list-color: $c-blue;
-      border-color: $grant-list-color;
+    @each $color, $c-var in $map-colors {
+      $i: index(($map-colors), ($color $c-var)) + 1;
+      .grant-list:nth-of-type(4n+#{$i}) & {
+        border-color: $c-var;
+      }
     }
   }
   &__list {
@@ -98,56 +103,19 @@ $z-grant-list-item: 500;
     transition-property: transform;
   }
 
-  .grant-list:nth-of-type(4n+1) & {
-    $grant-list-color: $c-yellow;
-    background-color: $grant-list-color;
-    .grant-list-item__image {
-      background-color: $grant-list-color;
-      &:after {
-        background-image: linear-gradient(to right bottom, $grant-list-color, rgba($grant-list-color, .7), rgba($grant-list-color, 0));
+  @each $color, $c-var in $map-colors {
+    $i: index(($map-colors), ($color $c-var)) + 1;
+    .grant-list:nth-of-type(4n+#{$i}) & {
+      background-color: $c-var;
+      .grant-list-item__image {
+        background-color: $c-var;
+        &:after {
+          background-image: linear-gradient(to right bottom, $c-var, rgba($c-var, .7), rgba($c-var, 0));
+        }
       }
-    }
-    .grant-list-item__trigger:hover {
-      background-color: rgba($grant-list-color, .5);
-    }
-  }
-  .grant-list:nth-of-type(4n+2) & {
-    $grant-list-color: $c-red;
-    background-color: $grant-list-color;
-    .grant-list-item__image {
-      background-color: $grant-list-color;
-      &:after {
-        background-image: linear-gradient(to right bottom, $grant-list-color, rgba($grant-list-color, .7), rgba($grant-list-color, 0));
+      .grant-list-item__trigger:hover {
+        background-color: rgba($c-var, .5);
       }
-    }
-    .grant-list-item__trigger:hover {
-      background-color: rgba($grant-list-color, .5);
-    }
-  }
-  .grant-list:nth-of-type(4n+3) & {
-    $grant-list-color: $c-green;
-    background-color: $grant-list-color;
-    .grant-list-item__image {
-      background-color: $grant-list-color;
-      &:after {
-        background-image: linear-gradient(to right bottom, $grant-list-color, rgba($grant-list-color, .7), rgba($grant-list-color, 0));
-      }
-    }
-    .grant-list-item__trigger:hover {
-      background-color: rgba($grant-list-color, .5);
-    }
-  }
-  .grant-list:nth-of-type(4n+4) & {
-    $grant-list-color: $c-blue;
-    background-color: $grant-list-color;
-    .grant-list-item__image {
-      background-color: $grant-list-color;
-      &:after {
-        background-image: linear-gradient(to right bottom, $grant-list-color, rgba($grant-list-color, .7), rgba($grant-list-color, 0));
-      }
-    }
-    .grant-list-item__trigger:hover {
-      background-color: rgba($grant-list-color, .5);
     }
   }
 }
