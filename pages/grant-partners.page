@@ -16,30 +16,35 @@
 }
 <div id="grant-map">
   <div class="container">
-    <div class="map">
+    <div class="map map--loading" :class="{ 'map--loading': !tilesLoaded }">
       <google-map
         :center="center"
-        :zoom="2"
         :options="options"
-        v-on:dragstart="handlePopupClose"
+        :zoom="2"
+        @click="handlePopupClose"
+        @dragstart="handlePopupClose"
+        @tilesloaded.once="handleLoaded"
         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
         ref="gMap">
         <google-marker
           v-for="(m,i) in markers"
-          :key="i"
-          :position="m.position"
           :clickable="true"
+          :key="i"
+          :icon="m.icon"
+          :position="m.position"
           :title="m.title"
           @click="handleMarkerClick(m, i)"
-          :icon="m.icon">
+          >
         </google-marker>
       </google-map>
       <div class="map__popup">
         <grant-map-popup
           :country="popup.country"
-          :title="popup.title"
           :grant-cycle-title="popup.grantCycleTitle"
-          :is-visible="popup.isVisible">
+          :is-active="popup.isActive"
+          :is-visible="popup.isVisible"
+          :status-message="popup.statusMessage"
+          :title="popup.title">
         </grant-map-popup>
       </div>
     </div>

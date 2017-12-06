@@ -45,10 +45,16 @@ export class GrantMap {
         },
         popup: {
           country: [],
-          title: '',
           grantCycleTitle: '',
-          isVisible: false
-        }
+          isActive: false,
+          isVisible: false,
+          statusMessage: '',
+          title: '',
+        },
+        tilesLoaded: false
+      },
+      beforeCreate: function() {
+        document.querySelector('.map--loading').classList.remove('map--loading');
       },
       mounted: function() {
         VueGoogleMaps.loaded.then(() => {
@@ -77,6 +83,7 @@ export class GrantMap {
 
                   return items.map((item) => {
                     return {
+                      animation: google.maps.Animation.BOUNCE,
                       icon: isRecent ? `/assets/icon-map-marker--current.png` : `/assets/icon-map-marker.png`,
                       position: {
                         lng: item.location.mapLng,
@@ -88,7 +95,6 @@ export class GrantMap {
                     }
                   })
                 });
-
               this.markers = [].concat(...markerArrs);
             })
             .catch((error) => {
@@ -98,31 +104,46 @@ export class GrantMap {
         handleError: function(error) {
           console.log(error);
         },
-        handlePopupClose: function() {
-          if (!this.popup.isVisible) return;
-          this.popup.isVisible = false;
-
-          setTimeout(function() {
-            this.popup = {
-              country: '',
-              title: '',
-              grantCycleTitle: '',
-              isVisible: false
-            }
-          }, 250);
+        handleLoaded: function() {
+          this.tilesLoaded = true;
+          this.popup = {
+            isVisible: true,
+            statusMessage: 'Choose a marker on the map!',
+          }
         },
         handleMarkerClick: function(marker, idx) {
+          if (marker.title === this.popup.title) return;
+
+          this.popup.isVisible = false;
+
+          setTimeout(() => {
+            this.popup = {
+              country: marker.country.split(', '),
+              title: marker.title,
+              grantCycleTitle: marker.grantCycleTitle,
+              isVisible: true,
+              isActive: true,
+            }
+          }, 150);
+
           this.$refs.gMap.panTo({
             lat: marker.position.lat,
             lng: marker.position.lng
           });
+        },
+        handlePopupClose: function() {
+          if (!this.popup.isVisible) return;
+          this.popup.isVisible = false;
 
-          this.popup = {
-            country: marker.country.split(', '),
-            title: marker.title,
-            grantCycleTitle: marker.grantCycleTitle,
-            isVisible: true,
-          }
+          setTimeout(() => {
+            this.popup = {
+              country: '',
+              title: '',
+              grantCycleTitle: '',
+              isVisible: false,
+              isActive: false,
+            }
+          }, 250);
         }
       }
     })
