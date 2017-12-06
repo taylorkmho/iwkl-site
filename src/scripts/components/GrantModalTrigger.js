@@ -25,6 +25,7 @@ export const GrantModalTrigger = {
             <div v-html="description"></div>
           </main>
         </div>
+        <button class="modal__close" v-on:click="closeModal"><img src="/assets/icon--close.svg"></button>
       </div>
     </div>
   `,
@@ -51,7 +52,6 @@ export const GrantModalTrigger = {
 
       axios.get(`${this.url}?format=json`)
         .then((response) => {
-          console.log('🎾 fetch!');
           const item = response.data.item;
           const collection = response.data.collection;
           this.country = item.customContent.country.split(', ');
@@ -73,12 +73,14 @@ export const GrantModalTrigger = {
       setTimeout(() => {
         this.modal.hasVisibleClass = true;
       }, 10);
+      document.body.style.overflow = 'hidden';
     },
     closeModal: function() {
       this.modal.hasVisibleClass = false;
       setTimeout(() => {
         this.modal.isRendered = false;
       }, 150);
+      document.body.style.overflow = '';
     }
   },
   props: ['url'],
