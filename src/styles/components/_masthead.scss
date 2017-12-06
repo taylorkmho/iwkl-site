@@ -69,15 +69,17 @@
     }
   }
 
-  &--blue {
-    &.masthead--faded {
-      &:after {
-        background-color: rgba($c-blue, .8);
+  @each $color, $c-var in $map-colors {
+    &--#{$color} {
+      &.masthead--faded {
+        &:after {
+          background-color: rgba($c-var, .8);
+        }
       }
-    }
-    .masthead {
-      &__bg {
-        background-color: $c-blue;
+      .masthead {
+        &__bg {
+          background-color: $c-var;
+        }
       }
     }
   }

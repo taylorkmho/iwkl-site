@@ -26,6 +26,13 @@ $c-map--bg:                 #acbcc9;
 $c-body:                    #585858;
 $c-hint:                    #797979;
 
+$map-colors:                (
+                              red: $c-red,
+                              green: $c-green,
+                              blue: $c-blue,
+                              yellow: $c-yellow
+                            );
+
 // STYLES
 $border-radius-1:           2px;
 $border-radius-2:           4px;

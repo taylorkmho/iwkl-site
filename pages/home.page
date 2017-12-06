@@ -49,7 +49,7 @@
 <div class="home-section home-section--grain home-section--y-small" style="background-image: url('/assets/bg--grain.jpg');">
   <div class="home-blockquote container">
     <div class="copy copy--xlarge">
-      <squarespace:block-field id="blockquote-section" label="Blockquote section" columns="12" />
+      <squarespace:block-field id="blockquote-section" label="Blockquote section" columns="12" lock-layout="true" />
     </div>
   </div>
 </div>
