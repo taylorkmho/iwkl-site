@@ -1,0 +1,24 @@
+.pill-list {
+  display: flex;
+  &__item {
+    list-style: none;
+    background: $c-blue;
+    color: #fff;
+    font-size: .75rem;
+    letter-spacing: 1px;
+    padding: ($gutter/4) ($gutter);
+    border-radius: 20px;
+    margin-right: ($gutter/2);
+    &:last-of-type {
+      margin-right: 0;
+    }
+    &--small {
+      font-size: .6275rem;
+      padding: ($gutter/8) ($gutter/2);
+      letter-spacing: 1px;
+    }
+    &--red {
+      background: $c-red;
+    }
+  }
+}

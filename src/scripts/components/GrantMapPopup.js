@@ -4,9 +4,9 @@ export const GrantMapPopup = {
       <main v-if="isActive">
         <p class="grant-map-popup__grant-cycle copy--small" v-text="grantCycleTitle"></p>
         <h3 class="grant-map-popup__title" v-text="title"></h3>
-        <ul class="grant-map-popup__country-list">
+        <ul class="grant-map-popup__country-list pill-list">
           <li
-            class="grant-map-popup__country copy--small copy--nowrap"
+            class="grant-map-popup__country pill-list__item pill-list__item--small copy--nowrap"
             v-for="(c, i) in country"
             :key="i"
             v-text="c">

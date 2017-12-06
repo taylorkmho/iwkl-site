@@ -40,12 +40,12 @@
   }
 }
 
+$z-grant-list-item: 500;
 .grant-list-item {
   position: relative;
   width: 30%;
   min-height: 300px;
   margin-bottom: ($gutter*2);
-  color: #fff;
   border-radius: $border-radius-2;
   overflow: hidden;
   box-shadow: $box-shadow-2;
@@ -70,15 +70,32 @@
   }
   &__copy {
     position: relative;
-    z-index: 100;
+    z-index: ($z-grant-list-item + 90);
     padding: $gutter;
     text-align: left;
+    pointer-events: none;
   }
   &__label {
     margin: 0;
   }
   &__title {
     margin: 0 0 $gutter;
+  }
+
+  &__trigger {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: ($z-grant-list-item + 50);
+    transition: background 150ms ease-out;
+  }
+
+  &--interactable {
+    cursor: pointer;
+    transition: all 150ms ease-out;
+    transition-property: transform;
   }
 
   .grant-list:nth-of-type(4n+1) & {
@@ -90,6 +107,9 @@
         background-image: linear-gradient(to right bottom, $grant-list-color, rgba($grant-list-color, .7), rgba($grant-list-color, 0));
       }
     }
+    .grant-list-item__trigger:hover {
+      background-color: rgba($grant-list-color, .5);
+    }
   }
   .grant-list:nth-of-type(4n+2) & {
     $grant-list-color: $c-red;
@@ -99,6 +119,9 @@
       &:after {
         background-image: linear-gradient(to right bottom, $grant-list-color, rgba($grant-list-color, .7), rgba($grant-list-color, 0));
       }
+    }
+    .grant-list-item__trigger:hover {
+      background-color: rgba($grant-list-color, .5);
     }
   }
   .grant-list:nth-of-type(4n+3) & {
@@ -110,6 +133,9 @@
         background-image: linear-gradient(to right bottom, $grant-list-color, rgba($grant-list-color, .7), rgba($grant-list-color, 0));
       }
     }
+    .grant-list-item__trigger:hover {
+      background-color: rgba($grant-list-color, .5);
+    }
   }
   .grant-list:nth-of-type(4n+4) & {
     $grant-list-color: $c-blue;
@@ -119,6 +145,9 @@
       &:after {
         background-image: linear-gradient(to right bottom, $grant-list-color, rgba($grant-list-color, .7), rgba($grant-list-color, 0));
       }
+    }
+    .grant-list-item__trigger:hover {
+      background-color: rgba($grant-list-color, .5);
     }
   }
 }

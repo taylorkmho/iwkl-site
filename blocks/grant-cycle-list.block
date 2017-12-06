@@ -13,18 +13,15 @@
       {.end}
       <div class="grant-list__list">
         {.repeated section items}
-          <div class="grant-list-item">
-            {.if assetUrl}
+          <div class="grant-list-item copy--light">
             <header class="grant-list-item__image" style="background-image: url({assetUrl});"></header>
-            {.or}
-            <header class="grant-list-item__image"></header>
-            {.end}
             <main class="grant-list-item__copy copy--antialiased">
               <h5 class="grant-list-item__label">GRANT NAME</h5>
               <p class="grant-list-item__title">{title}</p>
               <h5 class="grant-list-item__label">COUNTRIES</h5>
               <span class="grant-list-item__country">{customContent.country}</span>
             </main>
+            <grant-modal-trigger url="{fullUrl}"></grant-modal-trigger>
           </div>
         {.end}
       </div>
