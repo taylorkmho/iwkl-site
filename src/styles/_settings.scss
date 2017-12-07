@@ -10,6 +10,9 @@ $mobile-query-max:          $mobile-width + ($gutter * 2) - 1;
 $nav-width:                 786px; // guess
 $nav-query:                 $nav-width + ($gutter * 2);
 $nav-query-max:             $nav-width + ($gutter * 2) - 1;
+$video-width:               860px;
+$video-query:               $video-width + ($gutter * 2);
+$video-query-max:           $video-width + ($gutter * 2) - 1;
 
 // TYPOGRAPHY
 $line-height-body:          1.6;
