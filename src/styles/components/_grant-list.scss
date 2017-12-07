@@ -121,6 +121,13 @@ $z-grant-list-item: 500;
     min-height: initial;
   }
 }
+
+@media screen and (min-height: 960px) {
+  .grant-list-item {
+    min-height: 240px;
+  }
+}
+
 @media screen and (min-width: $container-width--modal) {
   .grant-list-item {
     width: 30%;

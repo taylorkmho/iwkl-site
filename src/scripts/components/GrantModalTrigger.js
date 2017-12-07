@@ -3,7 +3,11 @@ import axios from 'axios';
 export const GrantModalTrigger = {
   template: `
     <div>
-      <div class="grant-list-item__trigger" v-on:click="handleClick"></div>
+      <div
+        class="grant-list-item__trigger"
+        v-on:click="handleClick"
+        v-on:mouseover="prefetchImage">
+      </div>
       <div
         class="modal"
         :class="{ 'modal--visible' : modal.hasVisibleClass, 'modal--loading' : !dataLoaded }"
@@ -36,12 +40,12 @@ export const GrantModalTrigger = {
         hasVisibleClass: false,
       },
       dataLoaded: false,
-      assetUrl: '',
       country: [],
       description: '',
       title: '',
       grantCycleTitle: '',
-      style: {}
+      style: {},
+      imageIsLoaded: false,
     }
   },
   methods: {
@@ -71,6 +75,13 @@ export const GrantModalTrigger = {
           console.log(error);
         })
     },
+    prefetchImage: function() {
+      if (this.imageIsLoaded) return;
+
+      const img = new Image();
+      img.src = this.assetUrl;
+      this.imageIsLoaded = true;
+    },
     showModal: function() {
       document.body.style.overflow = 'hidden';
 
@@ -88,5 +99,5 @@ export const GrantModalTrigger = {
       }, 150);
     }
   },
-  props: ['url'],
+  props: ['assetUrl', 'url'],
 }

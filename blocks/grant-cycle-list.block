@@ -21,7 +21,7 @@
               <h5 class="grant-list-item__label">COUNTRIES</h5>
               <span class="grant-list-item__country">{customContent.country}</span>
             </main>
-            <grant-modal-trigger url="{fullUrl}"></grant-modal-trigger>
+            <grant-modal-trigger asset-url="{assetUrl}" url="{fullUrl}"></grant-modal-trigger>
           </div>
         {.end}
       </div>

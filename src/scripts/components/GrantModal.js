@@ -21,7 +21,6 @@ export class GrantModal {
         el: item,
         data: {},
         mounted: function() {
-          console.log('✅ success');
           this.$el.classList.add('grant-list-item--interactable');
         },
         methods: {
