@@ -1,5 +1,5 @@
 <header class="masthead masthead--yellow">
-  <div class="masthead__bg" style="background-image: url('/assets/bg--yellow.jpg');"></div>
+  <div class="masthead__bg" style="background-image: url('/assets/bg--yellow.jpg'); background-position: top center;"></div>
   <div class="masthead__content container">
     <div class="masthead__copy copy copy--light copy--large copy--antialiased">
       <h1 class="masthead__title" data-content-field="title">{collection.title}</h2>

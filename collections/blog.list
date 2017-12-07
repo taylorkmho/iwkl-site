@@ -32,7 +32,7 @@
             {.section categories}
               <ul class="blog-list-item__country pill-list">
                 {.repeated section @}
-                  <li class="pill-list__item pill-list__item--red">
+                  <li class="pill-list__item pill-list__item--green">
                     <a href="{collection.fullUrl}?category={@|url-encode}">{@}</a>
                   </li>
                 {.end}

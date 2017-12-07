@@ -1,3 +1,19 @@
+@media screen and (max-width: $mobile-query-max) {
+  body > main {
+    position: relative;
+    padding-top: 56px;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 56px;
+      width: 100%;
+      background-color: $c-brand;
+    }
+  }
+}
+
 .container {
   position: relative;
   max-width: $container-width;
