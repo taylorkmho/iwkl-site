@@ -1,50 +1,50 @@
 // LAYOUT
 $gutter:                    16px;
 
-$container-width:           1280px;
-$container-query:           $container-width + ($gutter * 2);
-$container-query-max:       $container-width + ($gutter * 2) - 1;
-$container-width--reading:  780px;
-$container-query--reading:  $container-width--reading + ($gutter * 2);
+$container-width:              1280px;
+$container-query:              $container-width + ($gutter * 2);
+$container-query-max:          $container-width + ($gutter * 2) - 1;
+$container-width--reading:     780px;
+$container-query--reading:     $container-width--reading + ($gutter * 2);
 $container-query-max--reading: $container-width--reading + ($gutter * 2) - 1;
-$container-width--modal:    1024px;
-$container-query--modal:    $container-width--modal + ($gutter * 2);
+$container-width--modal:       1024px;
+$container-query--modal:       $container-width--modal + ($gutter * 2);
 $container-query-max--modal:   $container-width--modal + ($gutter * 2) - 1;
-$mobile-width:              640px;
-$mobile-query:              $mobile-width + ($gutter * 2);
-$mobile-query-max:          $mobile-width + ($gutter * 2) - 1;
-$nav-width:                 786px; // guess
-$nav-query:                 $nav-width + ($gutter * 2);
-$nav-query-max:             $nav-width + ($gutter * 2) - 1;
-$video-width:               860px;
-$video-query:               $video-width + ($gutter * 2);
-$video-query-max:           $video-width + ($gutter * 2) - 1;
+$mobile-width:                 640px;
+$mobile-query:                 $mobile-width + ($gutter * 2);
+$mobile-query-max:             $mobile-width + ($gutter * 2) - 1;
+$nav-width:                    786px; // guess
+$nav-query:                    $nav-width + ($gutter * 2);
+$nav-query-max:                $nav-width + ($gutter * 2) - 1;
+$video-width:                  860px;
+$video-query:                  $video-width + ($gutter * 2);
+$video-query-max:              $video-width + ($gutter * 2) - 1;
 
 // TYPOGRAPHY
-$line-height-body:          1.6;
-$line-height-heading:       1.2;
+$line-height-body:             1.6;
+$line-height-heading:          1.2;
 
 // COLORS
-$c-brand:                   #932a39;
-$c-red:                     #de5449;
-$c-green:                   #2a9f7d;
-$c-blue:                    #2a829f;
-$c-yellow:                  #f7c22c;
-$c-offwhite:                #fcfbf8;
-$c-map--bg:                 #acbcc9;
-$c-body:                    #585858;
-$c-hint:                    #797979;
+$c-brand:                      #932a39;
+$c-red:                        #de5449;
+$c-green:                      #2a9f7d;
+$c-blue:                       #2a829f;
+$c-yellow:                     #f7c22c;
+$c-offwhite:                   #fcfbf8;
+$c-map--bg:                    #acbcc9;
+$c-body:                       #585858;
+$c-hint:                       #797979;
 
-$map-colors:                (
-                              red: $c-red,
-                              green: $c-green,
-                              blue: $c-blue,
-                              yellow: $c-yellow
-                            );
+$map-colors:                   (
+                                 red: $c-red,
+                                 green: $c-green,
+                                 blue: $c-blue,
+                                 yellow: $c-yellow
+                               );
 
 // STYLES
-$border-radius-1:           2px;
-$border-radius-2:           4px;
-$box-shadow-1:              0 10px 10px -5px rgba(#000000, .25);
-$box-shadow-2:              0 20px 20px -15px rgba(#000000, .25);
-$box-shadow-3:              0 20px 20px -15px rgba(#000000, .1);
+$border-radius-1:              2px;
+$border-radius-2:              4px;
+$box-shadow-1:                 0 10px 10px -5px rgba(#000000, .25);
+$box-shadow-2:                 0 20px 20px -15px rgba(#000000, .25);
+$box-shadow-3:                 0 20px 20px -15px rgba(#000000, .1);
