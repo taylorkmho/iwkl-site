@@ -32,7 +32,7 @@
         {.repeated section items}
           <div class="blog-index__post blog-index-post">
             <a class="blog-index-post__image-link" href="{fullUrl}">
-              <img src="{assetUrl}">
+              <img src="{assetUrl}?format=500w">
             </a>
             <div class="copy copy--light copy--antialiased">
               <h2 class="blog-index-post__headline">{title|truncate 64}</h2>

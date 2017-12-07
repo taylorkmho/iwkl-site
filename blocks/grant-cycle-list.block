@@ -14,7 +14,7 @@
       <div class="grant-list__list">
         {.repeated section items}
           <div class="grant-list-item copy--light">
-            <header class="grant-list-item__image" style="background-image: url({assetUrl});"></header>
+            <header class="grant-list-item__image" style="background-image: url({assetUrl}?format=500w);"></header>
             <main class="grant-list-item__copy copy--antialiased">
               <h5 class="grant-list-item__label">GRANT NAME</h5>
               <p class="grant-list-item__title">{title}</p>
