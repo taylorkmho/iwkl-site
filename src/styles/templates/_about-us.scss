@@ -60,11 +60,9 @@ $z-about-us: 500;
 
 .about-us-gallery {
   position: relative;
-  margin-top: ($gutter*2);
   &:after {
     content: "";
     position: absolute;
-    bottom: 0;
     display: block;
     height: 50%;
     width: 100%;
@@ -77,5 +75,16 @@ $z-about-us: 500;
   img {
     border-radius: $border-radius-2;
     box-shadow: $box-shadow-2;
+  }
+  &--top {
+    margin-top: ($gutter*2);
+    &:after {
+      bottom: 0;
+    }
+  }
+  &--bottom {
+    &:after {
+      top: 0;
+    }
   }
 }

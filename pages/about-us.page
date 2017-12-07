@@ -20,7 +20,7 @@
   </div>
 </div>
 
-<div class="about-us-gallery">
+<div class="about-us-gallery about-us-gallery--top">
   <div class="about-us-gallery__container container">
     <squarespace:block-field id="about-us-gallery" label="About Us gallery" columns="12" lock-layout="true" />
   </div>
@@ -36,6 +36,12 @@
         <squarespace:block-field id="guiding-principles" label="Guiding Principles" columns="12" lock-layout="true" />
       </div>
     </div>
+  </div>
+</div>
+
+<div class="about-us-gallery about-us-gallery--bottom">
+  <div class="about-us-gallery__container container">
+    <squarespace:block-field id="about-us-gallery-2" label="About Us gallery 2" columns="12" lock-layout="true" />
   </div>
 </div>
 
