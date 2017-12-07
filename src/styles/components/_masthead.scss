@@ -2,7 +2,7 @@
   $header-z: 900;
   position: relative;
   padding-top: 6rem;
-  margin-bottom: ($gutter * 4);
+  margin-bottom: ($gutter * 2);
   &__bg {
     position: absolute;
     top: 0;
@@ -56,19 +56,6 @@
     height: 100%;
   }
 
-  &--yellow {
-    &.masthead--faded {
-      &:after {
-        background-color: rgba($c-yellow, .8);
-      }
-    }
-    .masthead {
-      &__bg {
-        background-color: $c-yellow;
-      }
-    }
-  }
-
   @each $color, $c-var in $map-colors {
     &--#{$color} {
       &.masthead--faded {
@@ -85,8 +72,18 @@
   }
 
   &--overlap-btm {
-    padding-bottom: ($gutter*8);
-    margin-bottom: (-$gutter*8);
+    padding-bottom: ($gutter*4);
+    margin-bottom: (-$gutter*4);
+  }
+}
+
+@media screen and (min-width: $mobile-query) {
+  .masthead {
+    margin-bottom: ($gutter * 4);
+    &--overlap-btm {
+      padding-bottom: ($gutter*8);
+      margin-bottom: (-$gutter*8);
+    }
   }
 }
 

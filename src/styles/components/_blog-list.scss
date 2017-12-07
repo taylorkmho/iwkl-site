@@ -1,3 +1,13 @@
+.blog-list {
+  margin-bottom: ($gutter*2);
+}
+
+@media screen and (min-width: $mobile-query) {
+  .blog-list {
+    margin-bottom: ($gutter*4);
+  }
+}
+
 .blog-list-item {
   display: flex;
   margin-bottom: ($gutter*2);

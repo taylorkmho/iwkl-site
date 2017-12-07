@@ -1,7 +1,17 @@
+.contact-us-form {
+  margin-bottom: $gutter;
+}
+
 @media screen and (max-width: $mobile-query-max) {
   .contact-us-form {
     .col {
       width: 100%;
     }
+  }
+}
+
+@media screen and (min-width: $mobile-query) {
+  .contact-us-form {
+    margin-bottom: ($gutter*2);
   }
 }

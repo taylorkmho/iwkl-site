@@ -1,6 +1,7 @@
 .grant-application {
   position: relative;
   background-color: $c-blue;
+  margin-top: ($gutter*4);
   .row,
   .sqs-row {
     display: flex;
