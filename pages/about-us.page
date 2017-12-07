@@ -1,0 +1,51 @@
+<header class="masthead masthead--red">
+  <div class="masthead__bg" style="background-image: url('/assets/bg--red.jpg'); background-position: top center;"></div>
+  <div class="masthead__content container">
+    <div class="masthead__copy copy copy--light copy--large copy--antialiased">
+      <h1 class="masthead__title" data-content-field="title">{collection.title}</h2>
+      <div class="masthead__meta h3">
+        <squarespace:block-field id="intro-about-us" label="About Us intro" columns="1" lock-layout="true" />
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="about-us-splash">
+  <div class="about-us-splash__container container">
+    <div class="container--reading">
+      <div class="copy copy--large">
+        <squarespace:block-field id="about-us-splash" label="About Us copy (large)" columns="12" lock-layout="true" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="about-us-gallery">
+  <div class="about-us-gallery__container container">
+    <squarespace:block-field id="about-us-gallery" label="About Us gallery" columns="12" lock-layout="true" />
+  </div>
+</div>
+
+<div class="guiding-section guiding-section--red">
+  <div class="guiding-section__container container">
+    <div class="container--reading">
+      <div class="guiding-section__intro copy--large copy--light copy--antialiased">
+        <squarespace:block-field id="intro-guiding-principles" label="Guiding Principles intro (large)" columns="12" lock-layout="true" />
+      </div>
+      <div class="guiding-section__body copy copy--light copy--antialiased">
+        <squarespace:block-field id="guiding-principles" label="Guiding Principles" columns="12" lock-layout="true" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="guiding-section guiding-section--centered">
+  <div class="guiding-section__container container">
+    <div class="guiding-section__intro copy--large copy--antialiased">
+      <squarespace:block-field id="intro-guiding-committee" label="Guiding Committee intro (large)" columns="12" lock-layout="true" />
+    </div>
+    <div class="guiding-section__body">
+      <squarespace:block-field id="guiding-committee" label="Guiding Committee" columns="12" lock-layout="true" />
+    </div>
+  </div>
+</div>

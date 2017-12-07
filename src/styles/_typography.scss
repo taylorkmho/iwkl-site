@@ -28,6 +28,8 @@ h6,
     position: relative;
     text-decoration: none;
     color: $c-body;
+    display: inline-block;
+    line-height: 1.5;
     &:after {
       $underline-horz-delta: 2px;
       content: "";
