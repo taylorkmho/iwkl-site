@@ -1,7 +1,10 @@
 .pill-list {
   display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
   &__item {
-    list-style: none;
+    @extend .copy--nowrap;
     background: $c-blue;
     color: #fff;
     font-size: .75rem;
@@ -12,13 +15,20 @@
     &:last-of-type {
       margin-right: 0;
     }
+    a {
+      @extend .copy--antialiased;
+      color: inherit;
+      text-decoration: none;
+    }
     &--small {
       font-size: .6275rem;
       padding: ($gutter/8) ($gutter/2);
       letter-spacing: 1px;
     }
-    &--red {
-      background: $c-red;
+    @each $color, $c-var in $map-colors {
+      &--#{$color} {
+        background: $c-var;
+      }
     }
   }
 }

@@ -1,7 +1,7 @@
 {.section item}
 <div class="blog-post" data-content-field="main-content" data-item-id="{id}">
   {.if assetUrl}
-    <header class="masthead masthead--faded masthead--yellow" data-controller="Masthead">
+    <header class="masthead masthead--faded masthead--green" data-controller="Masthead">
       <div class="masthead__bg" style="background-image: url('{assetUrl}');" data-focus-x="{mediaFocalPoint.x}" data-focus-y="{mediaFocalPoint.y}"></div>
       <div class="masthead__content container">
         <div class="masthead__copy copy copy--light copy--large copy--antialiased">

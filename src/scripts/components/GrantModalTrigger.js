@@ -16,13 +16,13 @@ export const GrantModalTrigger = {
             <h2>{{title}}</h2>
             <ul class="modal__country pill-list">
               <li
-                class="pill-list__item pill-list__item--red copy--nowrap"
+                class="pill-list__item pill-list__item--blue"
                 v-for="(c, i) in country"
                 :key="i"
                 v-text="c">
               </li>
             </ul>
-            <div v-html="description"></div>
+            <div class="modal__body" v-html="description"></div>
           </main>
         </div>
         <button class="modal__close" v-on:click="closeModal"><img src="/assets/icon--close.svg"></button>

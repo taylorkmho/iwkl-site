@@ -27,6 +27,7 @@ h6,
   a {
     position: relative;
     text-decoration: none;
+    color: $c-body;
     &:after {
       $underline-horz-delta: 2px;
       content: "";

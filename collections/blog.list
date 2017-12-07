@@ -1,1 +1,63 @@
-<p>BLOG INDEX what!</p>
+<header class="masthead masthead--green">
+  <div class="masthead__bg" style="background-image: url('/assets/bg--green.jpg'); background-position: 44% 27%;"></div>
+  <div class="masthead__content container">
+    <div class="masthead__copy copy copy--light copy--large copy--antialiased">
+      <h1 class="masthead__title" data-content-field="title">{collection.title}</h2>
+        <div class="masthead__meta h3">
+          {.section categoryFilter}
+            All Posts in &ldquo;<span class="category-name">{@}</span>&rdquo;
+          {.end}
+          {.section tagFilter}
+            All Posts tagged &ldquo;<span class="category-name">{@}</span>&rdquo;
+          {.end}
+          {.if authorFilter}
+            <p>All by {author.displayName}</p>
+          {.end}
+        </h3>
+    </div>
+  </div>
+</header>
+
+<div class="blog-list">
+  <div class="blog-list__container container">
+    {.repeated section items}
+      <article class="blog-list-item {.main-image?}blog-list-item--has-main-image {.end}{@|item-classes}" id="article-{id}">
+        <main class="blog-list-item__copy">
+          <h1 class="blog-list-item__headline copy" data-content-field="title" >
+            <a href="{fullUrl}">
+              {title}
+            </a>
+          </h1>
+          <div class="blog-list-item__subline">
+            {.section categories}
+              <ul class="blog-list-item__country pill-list">
+                {.repeated section @}
+                  <li class="pill-list__item pill-list__item--red">
+                    <a href="{collection.fullUrl}?category={@|url-encode}">{@}</a>
+                  </li>
+                {.end}
+              </ul>
+            {.end}
+            <time class="blog-list-item__date" datetime="{addedOn|date %F}" pubdate>{addedOn|date %b %e}</time>
+          </div>
+          {.excerpt?}
+            <div>{excerpt}</div>
+          {.or}
+            <div>{body|safe|truncate 320}</div>
+          {.end}
+      </main>
+      {.main-image?}
+        <aside class="blog-list-item__image">
+          <a href="{fullUrl}">
+            <img src="{assetUrl}?format=500w">
+          </a>
+        </aside>
+      {.end}
+    </article>
+    {.end}
+    </div>
+  </div>
+
+{.if pagination}
+  {.if pagination.nextPage}<a href="{pagination.nextPageUrl}">Next</a>{.end}
+{.end}

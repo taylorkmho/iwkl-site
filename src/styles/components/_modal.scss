@@ -58,6 +58,7 @@ $z-modal: 1000;
     left: 0;
     background-size: cover;
     background-position: center center;
+    background-color: #ddd;
   }
   &__copy {
     right: 0;
@@ -69,9 +70,8 @@ $z-modal: 1000;
   &__grant-title {
     color: $c-hint;
   }
-  &__country {
-    margin: 0 0 $gutter;
-    padding: 0;
+  &__body {
+    margin-top: $gutter;
   }
   &--visible {
     background-color: rgba(#000, .75);
