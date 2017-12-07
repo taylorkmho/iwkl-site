@@ -1,35 +1,17 @@
+$z-grant-list-item: 500;
+
 .grant-list {
   margin-top: ($gutter*4);
-  &__container {
-    display: flex;
-  }
-  &__copy {
-    width: 25%;
-  }
   &__title {
     display: block;
-    margin: 0 0 $gutter;
+    margin: 0 0 ($gutter);
     padding: $gutter ($gutter/2);
-    font-size: 2.5rem;
+    font-size: 2rem;
     border-width: 4px;
     border-style: solid;
     border-left: none;
     border-right: none;
 
-    @each $color, $c-var in $map-colors {
-      &--#{$color} {
-        &.masthead--faded {
-          &:after {
-            background-color: rgba($c-var, .8);
-          }
-        }
-        .masthead {
-          &__bg {
-            background-color: $c-var;
-          }
-        }
-      }
-    }
     @each $color, $c-var in $map-colors {
       $i: index(($map-colors), ($color $c-var)) + 1;
       .grant-list:nth-of-type(4n+#{$i}) & {
@@ -37,20 +19,33 @@
       }
     }
   }
-  &__list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 75%;
+}
+
+@media screen and (min-width: $mobile-query) {
+  .grant-list {
+    &__container {
+      display: flex;
+    }
+    &__copy {
+      width: 25%;
+    }
+    &__title {
+      font-size: 2.5rem;
+    }
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      width: 75%;
+    }
   }
 }
 
-$z-grant-list-item: 500;
 .grant-list-item {
   position: relative;
-  width: 30%;
-  min-height: 300px;
-  margin-bottom: ($gutter*2);
+  width: 100%;
+  min-height: 25vh;
+  margin-bottom: $gutter;
   border-radius: $border-radius-2;
   overflow: hidden;
   box-shadow: $box-shadow-2;
@@ -62,7 +57,6 @@ $z-grant-list-item: 500;
     background-size: cover;
     background-position: center center;
     background-blend-mode: luminosity;
-    background-image: url("/assets/bg--grain.jpg");
     opacity: .5;
     &:after {
       content: "";
@@ -117,5 +111,19 @@ $z-grant-list-item: 500;
         background-color: rgba($c-var, .5);
       }
     }
+  }
+}
+
+@media screen and (min-width: $mobile-query) {
+  .grant-list-item {
+    width: 45%;
+    margin-bottom: ($gutter*2);
+    min-height: initial;
+  }
+}
+@media screen and (min-width: $container-width--modal) {
+  .grant-list-item {
+    width: 30%;
+    min-height: 300px;
   }
 }

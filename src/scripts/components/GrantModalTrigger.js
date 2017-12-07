@@ -54,14 +54,17 @@ export const GrantModalTrigger = {
         .then((response) => {
           const item = response.data.item;
           const collection = response.data.collection;
+
           this.country = item.customContent.country.split(', ');
           this.title = item.title;
           this.description = item.body;
           this.assetUrl = item.assetUrl;
           this.grantCycleTitle = collection.title;
           this.style = {
-            backgroundImage: 'url(' + item.assetUrl + ')'
-          }
+            backgroundImage: 'url(' + item.assetUrl + ')',
+            backgroundPositionX: `${parseInt(parseFloat(item.mediaFocalPoint.x) * 100)}%`,
+            backgroundPositionY: `${parseInt(parseFloat(item.mediaFocalPoint.y) * 100)}%`
+          };
           this.dataLoaded = true;
         })
         .catch((error) => {
@@ -69,18 +72,20 @@ export const GrantModalTrigger = {
         })
     },
     showModal: function() {
+      document.body.style.overflow = 'hidden';
+
       this.modal.isRendered = true;
       setTimeout(() => {
         this.modal.hasVisibleClass = true;
       }, 10);
-      document.body.style.overflow = 'hidden';
     },
     closeModal: function() {
+      document.body.style.overflow = '';
+
       this.modal.hasVisibleClass = false;
       setTimeout(() => {
         this.modal.isRendered = false;
       }, 150);
-      document.body.style.overflow = '';
     }
   },
   props: ['url'],

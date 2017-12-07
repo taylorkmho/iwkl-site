@@ -19,10 +19,10 @@
     max-width: 520px;
     width: 100%;
     margin-left: ($gutter/2);
-    border-radius: $border-radius-1;
-    overflow: hidden;
     img {
       box-shadow: $box-shadow-2;
+      border-radius: $border-radius-1;
+      overflow: hidden;
     }
   }
   &__headline {

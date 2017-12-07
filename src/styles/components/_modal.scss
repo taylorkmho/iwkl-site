@@ -4,9 +4,6 @@ $z-modal: 1000;
   top: 0;
   left: 0;
   z-index: $z-modal;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   height: 100%;
   cursor: default;
@@ -16,10 +13,7 @@ $z-modal: 1000;
     position: relative;
     height: 100%;
     width: 100%;
-    max-height: 540px;
     background-color: #fff;
-    border-radius: $border-radius-2;
-    box-shadow: $box-shadow-2;
     transform: translateY($gutter);
     opacity: .25;
     transition: all 150ms ease-out;
@@ -27,12 +21,13 @@ $z-modal: 1000;
   }
   &__close {
     position: absolute;
-    top: $gutter;
-    right: $gutter;
-    width: 70px;
-    height: 70px;
+    height: ($gutter*2);
+    width: ($gutter*2);
+    right: ($gutter/2);
+    top: ($gutter/2);
     border: 0;
     outline: none;
+    background-color: rgba(#000, .35);
     cursor: pointer;
     user-select: none;
     transition: all 150ms ease-out;
@@ -48,20 +43,21 @@ $z-modal: 1000;
   }
   &__image,
   &__copy {
-    display: block;
-    width: 50%;
-    height: 100%;
     position: absolute;
-    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
   }
   &__image {
-    left: 0;
+    top: 0;
+    height: 30%;
     background-size: cover;
     background-position: center center;
-    background-color: #ddd;
+    background-color: rgba(#000, .2);
   }
   &__copy {
-    right: 0;
+    bottom: 0;
+    height: 70%;
     overflow: scroll;
     padding: $gutter ($gutter*2) ($gutter*2);
     text-align: left;
@@ -87,6 +83,55 @@ $z-modal: 1000;
       &__container {
         background-color: rgba(#fff, .1);
       }
+    }
+  }
+}
+
+@media screen and (min-width: $mobile-query) {
+  .modal {
+    padding: ($gutter*5) $gutter $gutter;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__container {
+      border-radius: $border-radius-2;
+      box-shadow: $box-shadow-2;
+      overflow: hidden;
+    }
+    &__image,
+    &__copy {
+      width: 50%;
+      height: 100%;
+    }
+    &__copy {
+      right: 0;
+      left: auto;
+    }
+    &__close {
+      height: 48px;
+      width: 48px;
+      right: 8px;
+      top: 16px;
+      height: ($gutter*3);
+      width: ($gutter*3);
+      right: ($gutter/2);
+      top: $gutter;
+      background-color: transparent;
+    }
+  }
+}
+
+
+@media screen and (min-width: $container-query--modal) {
+  .modal {
+    &__container {
+      max-height: 540px;
+    }
+    &__close {
+      top: $gutter;
+      right: $gutter;
+      width: ($gutter*4);
+      height: ($gutter*4);
     }
   }
 }

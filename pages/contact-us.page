@@ -12,6 +12,8 @@
 
 <div class="contact-us-form">
   <div class="contact-us-form__container container">
-    <squarespace:block-field id="form-contact-us" label="Contact Us form & info" columns="12" lock-layout="true" />
+    <div class="copy">
+      <squarespace:block-field id="form-contact-us" label="Contact Us form & info" columns="12" lock-layout="true" />
+    </div>
   </div>
 </div>
