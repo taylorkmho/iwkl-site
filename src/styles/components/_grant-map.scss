@@ -4,15 +4,18 @@ $map-z: 500;
   background-color: $c-map--bg;
   width: 100%;
   height: 0;
-  padding-bottom: 60%;
+  padding-bottom: 120%;
   border-radius: $border-radius-1;
   box-shadow: $box-shadow-2;
   overflow: hidden;
   &__popup {
     position: absolute;
-    bottom: ($gutter*2);
-    left: $gutter;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 0 ($gutter*3) ($gutter*2) $gutter;
     z-index: ($map-z + 10);
+    pointer-events: none;
   }
   &:after {
     $loader-size: 30px;
@@ -44,10 +47,16 @@ $map-z: 500;
   }
 }
 
+@media screen and (min-width: $mobile-query) {
+  .map {
+    padding-bottom: 60%;
+  }
+}
+
 .grant-map-popup {
-  width: 360px;
-  max-width: 100%;
-  padding: $gutter $gutter ($gutter/2);
+  width: 100%;
+  max-width: 360px;
+  padding: ($gutter/2) $gutter;
   background-color: #fff;
   border-radius: $border-radius-2;
   overflow: hidden;
@@ -94,5 +103,11 @@ $map-z: 500;
   &--visible {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+@media screen and (min-width: $mobile-query) {
+  .grant-map-popup {
+    padding: $gutter;
   }
 }
