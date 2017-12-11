@@ -3,7 +3,7 @@ import Vue from 'vue';
 import * as VueGoogleMaps from 'vue2-google-maps';
 import { config } from '../config';
 import { GrantMapPopup } from './GrantMapPopup';
-import { GrantMapLoader } from './GrantMapLoader';
+import { ProgressBar } from './ProgressBar';
 
 export class GrantMap {
   constructor() {
@@ -20,7 +20,7 @@ export class GrantMap {
     Vue.component('google-map', VueGoogleMaps.Map);
     Vue.component('google-marker', VueGoogleMaps.Marker);
     Vue.component('grant-map-popup', GrantMapPopup);
-    Vue.component('grant-map-loader', GrantMapLoader);
+    Vue.component('progress-bar', ProgressBar);
 
     this.initVue();
   }

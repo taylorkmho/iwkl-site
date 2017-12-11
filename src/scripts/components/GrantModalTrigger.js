@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { ProgressBar } from './ProgressBar';
 
 export const GrantModalTrigger = {
   template: `
@@ -13,6 +14,7 @@ export const GrantModalTrigger = {
         :class="{ 'modal--visible' : modal.hasVisibleClass, 'modal--loading' : !dataLoaded }"
         v-show="modal.isRendered"
         v-on:click.self="closeModal">
+        <progress-bar ref="loader"></progress-bar>
         <div class="modal__container container container--modal">
           <aside class="modal__image" :style="style"></aside>
           <main class="modal__copy">
@@ -33,6 +35,9 @@ export const GrantModalTrigger = {
       </div>
     </div>
   `,
+  components: {
+    'progress-bar': ProgressBar
+  },
   data: function() {
     return {
       modal: {
@@ -51,25 +56,34 @@ export const GrantModalTrigger = {
   methods: {
     handleClick: function() {
       this.showModal();
-
       if (this.dataLoaded) return;
+      const rand = Math.random() * (.6 - .2) + .2;
+      this.$refs.loader.increaseBy(rand);
+
+      setTimeout(()=>{
+        const rand = Math.random() * (.6 - .2) + .2;
+        this.$refs.loader.increaseBy(rand);
+      }, 250);
 
       axios.get(`${this.url}?format=json`)
         .then((response) => {
           const item = response.data.item;
           const collection = response.data.collection;
 
-          this.country = item.customContent.country.split(', ');
-          this.title = item.title;
-          this.description = item.body;
-          this.assetUrl = item.assetUrl;
-          this.grantCycleTitle = collection.title;
-          this.style = {
-            backgroundImage: 'url(' + item.assetUrl + ')',
-            backgroundPositionX: `${parseInt(parseFloat(item.mediaFocalPoint.x) * 100)}%`,
-            backgroundPositionY: `${parseInt(parseFloat(item.mediaFocalPoint.y) * 100)}%`
-          };
-          this.dataLoaded = true;
+          setTimeout(() => {
+            this.country = item.customContent.country.split(', ');
+            this.title = item.title;
+            this.description = item.body;
+            this.assetUrl = item.assetUrl;
+            this.grantCycleTitle = collection.title;
+            this.style = {
+              backgroundImage: 'url(' + item.assetUrl + ')',
+              backgroundPositionX: `${parseInt(parseFloat(item.mediaFocalPoint.x) * 100)}%`,
+              backgroundPositionY: `${parseInt(parseFloat(item.mediaFocalPoint.y) * 100)}%`
+            };
+            this.dataLoaded = true;
+            this.$refs.loader.complete();
+          }, 250);
         })
         .catch((error) => {
           console.log(error);
