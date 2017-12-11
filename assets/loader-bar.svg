@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1280px" height="5px" viewBox="0 0 1280 5" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>Rectangle Copy + Rectangle Copy 2 + Rectangle Copy 3 + Rectangle Copy 4 Mask</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="1280" height="5"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard">
+            <g id="Rectangle-Copy-+-Rectangle-Copy-2-+-Rectangle-Copy-3-+-Rectangle-Copy-4-Mask">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#D8D8D8" xlink:href="#path-1"></use>
+                <rect id="Rectangle-Copy" fill="#DE5449" mask="url(#mask-2)" x="0" y="0" width="320" height="5"></rect>
+                <rect id="Rectangle-Copy-2" fill="#2A9F7D" mask="url(#mask-2)" x="320" y="0" width="320" height="5"></rect>
+                <rect id="Rectangle-Copy-3" fill="#2A829F" mask="url(#mask-2)" x="640" y="0" width="320" height="5"></rect>
+                <rect id="Rectangle-Copy-4" fill="#F7C22C" mask="url(#mask-2)" x="960" y="0" width="320" height="5"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

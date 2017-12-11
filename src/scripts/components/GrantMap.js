@@ -3,6 +3,7 @@ import Vue from 'vue';
 import * as VueGoogleMaps from 'vue2-google-maps';
 import { config } from '../config';
 import { GrantMapPopup } from './GrantMapPopup';
+import { GrantMapLoader } from './GrantMapLoader';
 
 export class GrantMap {
   constructor() {
@@ -19,6 +20,7 @@ export class GrantMap {
     Vue.component('google-map', VueGoogleMaps.Map);
     Vue.component('google-marker', VueGoogleMaps.Marker);
     Vue.component('grant-map-popup', GrantMapPopup);
+    Vue.component('grant-map-loader', GrantMapLoader);
 
     this.initVue();
   }
@@ -50,17 +52,15 @@ export class GrantMap {
           isVisible: false,
           statusMessage: '',
           title: '',
-        },
-        tilesLoaded: false
-      },
-      beforeCreate: function() {
-        document.querySelector('.map--loading').classList.remove('map--loading');
+        }
       },
       mounted: function() {
         VueGoogleMaps.loaded.then(() => {
           this.apiLoaded = true;
           this.getMarkers();
         });
+
+        this.$refs.loader.increaseBy(.275);
       },
       methods: {
         getMarkers: function() {
@@ -96,6 +96,7 @@ export class GrantMap {
                   })
                 });
               this.markers = [].concat(...markerArrs);
+              this.$refs.loader.increaseBy(.55);
             })
             .catch((error) => {
               this.handleError(error);
@@ -105,11 +106,13 @@ export class GrantMap {
           console.log(error);
         },
         handleLoaded: function() {
-          this.tilesLoaded = true;
-          this.popup = {
-            isVisible: true,
-            statusMessage: 'Choose a marker on the map!',
-          }
+          setTimeout(() => {
+            this.$refs.loader.complete();
+            this.popup = {
+              isVisible: true,
+              statusMessage: 'Choose a marker on the map!',
+            }
+          }, 1000)
         },
         handleMarkerClick: function(marker, idx) {
           if (marker.title === this.popup.title) return;

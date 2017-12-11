@@ -16,7 +16,10 @@
 }
 <div id="grant-map">
   <div class="container">
-    <div class="map map--loading" :class="{ 'map--loading': !tilesLoaded }">
+    <div class="map">
+      <div class="map__loader">
+        <grant-map-loader ref="loader"></grant-map-loader>
+      </div>
       <google-map
         :center="center"
         :options="options"

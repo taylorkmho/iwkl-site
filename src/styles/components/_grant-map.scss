@@ -8,6 +8,13 @@ $map-z: 500;
   border-radius: $border-radius-1;
   box-shadow: $box-shadow-2;
   overflow: hidden;
+  &__loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: ($map-z + 10);
+    width: 100%;
+  }
   &__popup {
     position: absolute;
     left: 0;
@@ -16,34 +23,6 @@ $map-z: 500;
     padding: 0 ($gutter*3) ($gutter*2) $gutter;
     z-index: ($map-z + 10);
     pointer-events: none;
-  }
-  &:after {
-    $loader-size: 30px;
-    content: "";
-    position: absolute;
-    top: $gutter;
-    right: $gutter;
-    z-index: ($map-z + 50);
-    width: $loader-size;
-    height: $loader-size;
-    border-radius: ($loader-size/2);
-    border: ($loader-size/2) solid #000;
-    border-top-color: $c-blue;
-    border-left-color: $c-green;
-    border-bottom-color: $c-red;
-    border-right-color: $c-yellow;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 150ms ease-out;
-  }
-  &--loading {
-    &:after {
-      animation-name: spin;
-      animation-duration: 500ms;
-      animation-iteration-count: infinite;
-      animation-timing-function: ease-out;
-      opacity: 1;
-    }
   }
 }
 
@@ -109,5 +88,19 @@ $map-z: 500;
 @media screen and (min-width: $mobile-query) {
   .grant-map-popup {
     padding: $gutter;
+  }
+}
+
+.grant-map-loader {
+  position: relative;
+  z-index: 100;
+  opacity: 1;
+  transition: all 250ms ease-out 250ms;
+  transition-property: transform, opacity;
+  &--hidden {
+    transform: translateY(-100%);
+  }
+  &__mask {
+    transition: transform 250ms ease-out;
   }
 }
