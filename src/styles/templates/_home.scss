@@ -1,4 +1,6 @@
 .home-section {
+  display: flex;
+  align-items: center;
   background-size: cover;
   background-position: center top;
   background-attachment: fixed;
@@ -35,8 +37,12 @@
 
 @media screen and (min-width: $mobile-query) {
   .home-section {
+    min-height: 100vh;
     padding-top: 20vh;
     padding-bottom: 15vh;
+    &--y-small {
+      min-height: initial;
+    }
   }
 }
 
@@ -49,6 +55,7 @@
 
 .splash {
   position: relative;
+  width: 100%;
   max-width: $video-width;
   margin: 0 auto;
   @extend %sq-no-padding;

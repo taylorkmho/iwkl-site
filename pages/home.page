@@ -22,7 +22,7 @@
   </div>
 </div>
 
-<div class="home-section home-section--yellow" style="background-image: url('/assets/bg--yellow.jpg');">
+<div class="home-section home-section--yellow home-section--y-small" style="background-image: url('/assets/bg--yellow.jpg');">
     <div class="home-columns home-columns--blog container">
       <div class="copy copy--large copy--light copy--antialiased">
         <h2>Latest News</h2>
