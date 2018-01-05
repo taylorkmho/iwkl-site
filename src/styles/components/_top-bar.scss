@@ -6,58 +6,48 @@ $nav-transition-dur: 250ms;
   padding: $gutter 0;
   z-index: $nav-z;
 
-  &__logo {
-    margin-right: $gutter;
-    svg, img {
-      max-height: ($gutter * 1.5);
-      width: auto;
+  &__container {
+    html:not(.js) & {
+      display: flex;
+      align-items: center;
     }
   }
 
-  // top-bar.js - added via Javascript
-  &__button {
-    position: absolute;
-    top: 18px;
-    right: $gutter;
-    display: block;
-    height: 20px;
-    width: 30px;
-    padding: 0;
-    border: 0;
-    border-radius: 0;
-    color: transparent;
-    outline: 0;
-    cursor: pointer;
-    background-image: url('/assets/icon--hamburger.svg');
-    background-size: 100% 100%;
-    user-select: none;
+  &__logo {
+    position: relative;
+    z-index: #{$nav-z + 50};
+    display: inline-block;
+    height: $nav-height;
+    width: 180px;
+    margin-right: $gutter;
+    color: #fff;
+
+    html:not(.js) & {
+      flex-basis: 300px;
+    }
+
+    .logo-svg {
+      &__subline {
+        display: none;
+      }
+    }
+  }
+
+  &__items {
+    html:not(.js) & {
+      flex-grow: 1;
+      text-align: right;
+      a {
+        margin-left: ($gutter/2);
+        &:first-of-type {
+          margin-left: 0;
+        }
+      }
+    }
   }
 
   &--mobile {
-    position: fixed;
-    background-color: $c-brand;
-    border-bottom: 2px solid darken($c-brand, 5%);
-    height: #{$gutter * 3.5};
-    padding: 0;
-    overflow: hidden;
-    transition: height $nav-transition-dur ease-in-out;
-
-    &:after {
-      content: "";
-      position: absolute;
-      background-color: darken($c-brand, 5%);
-      top: #{$gutter * 3.5};
-      height: 100%;
-      width: 100%;
-    }
-
     .top-bar {
-      &__logo {
-        position: relative;
-        display: inline-block;
-        padding: $gutter 0;
-        z-index: #{$nav-z + 50};
-      }
       &__items {
         position: relative;
         z-index: #{$nav-z + 50};
@@ -82,16 +72,45 @@ $nav-transition-dur: 250ms;
         }
       }
     }
-    &.top-bar--active {
-      height: 100vh;
-      .top-bar {
-        &__items {
-          pointer-events: initial;
-          transform: translateY(0);
-          opacity: 1;
+  }
+}
+
+@media screen and (max-width: $nav-query-max) {
+  .top-bar {
+    .js & {
+      position: fixed;
+      background-color: $c-brand;
+      border-bottom: 2px solid darken($c-brand, 5%);
+      height: $nav-height;
+      padding: 0;
+      overflow: hidden;
+      transition: height $nav-transition-dur ease-in-out;
+
+      &:after {
+        content: "";
+        position: absolute;
+        background-color: darken($c-brand, 5%);
+        top: $nav-height;
+        height: 100%;
+        width: 100%;
+      }
+
+      &.top-bar--active {
+        height: 100vh;
+        .top-bar {
+          &__items {
+            pointer-events: initial;
+            transform: translateY(0);
+            opacity: 1;
+          }
         }
       }
     }
+  }
+
+  .logo-svg {
+    position: relative;
+    top: 12px;
   }
 }
 
@@ -102,8 +121,11 @@ $nav-transition-dur: 250ms;
       display: flex;
     }
     &__logo {
-      svg, img {
-        max-height: ($gutter*2);
+      flex-basis: 240px;
+      .logo-svg {
+        &__subline {
+          display: initial;
+        }
       }
     }
     &__items {
@@ -121,6 +143,38 @@ $nav-transition-dur: 250ms;
           margin-right: 0;
         }
       }
+    }
+  }
+}
+
+// top-bar.js - added via Javascript
+.menu-button {
+  position: absolute;
+  top: 18px;
+  right: $gutter;
+  display: block;
+  height: 20px;
+  width: 30px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  color: transparent;
+  outline: 0;
+  cursor: pointer;
+  background-image: url('/assets/icon--hamburger.svg');
+  background-size: 100% 100%;
+  user-select: none;
+}
+
+.logo-svg {
+  &__subline {
+    transform-origin: top center;
+    transition: 150ms ease-out transform;
+  }
+
+  &:hover {
+    .logo-svg__subline {
+      transform: scale(1.025);
     }
   }
 }

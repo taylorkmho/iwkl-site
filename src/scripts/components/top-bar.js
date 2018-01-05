@@ -11,7 +11,7 @@ export class TopBarMenu {
     }
 
     const MenuButton = {
-      template: `<button v-on:click="toggleMenu" class="${TARGET_CLASS}__button">MENU</button>`,
+      template: `<button v-on:click="toggleMenu" class="menu-button">MENU</button>`,
       methods: {
         toggleMenu: function() {
           this.$emit('toggle-menu');
