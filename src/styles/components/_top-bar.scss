@@ -80,7 +80,7 @@ $nav-transition-dur: 250ms;
     .js & {
       position: fixed;
       background-color: $c-brand;
-      border-bottom: 2px solid darken($c-brand, 5%);
+      border-bottom: 2px solid darken($c-brand, 7.5%);
       height: $nav-height;
       padding: 0;
       overflow: hidden;
@@ -97,6 +97,7 @@ $nav-transition-dur: 250ms;
 
       &.top-bar--active {
         height: 100vh;
+        border-color: transparent;
         .top-bar {
           &__items {
             pointer-events: initial;
@@ -150,20 +151,55 @@ $nav-transition-dur: 250ms;
 // top-bar.js - added via Javascript
 .menu-button {
   position: absolute;
-  top: 18px;
+  top: 13px;
   right: $gutter;
   display: block;
-  height: 20px;
+  height: 30px;
   width: 30px;
   padding: 0;
   border: 0;
   border-radius: 0;
-  color: transparent;
+  color: #fff;
   outline: 0;
   cursor: pointer;
-  background-image: url('/assets/icon--hamburger.svg');
-  background-size: 100% 100%;
   user-select: none;
+  transition: background 100ms ease-in-out 50ms;
+  &__svg,
+  &__bar {
+    transition: transform ($nav-transition-dur / 2) ease-in-out,
+                opacity ($nav-transition-dur / 2) ease-in-out,
+                stroke-width #{($nav-transition-dur / 2) - 50ms} ease-in-out; // has 50ms transition delay
+  }
+  &__bar {
+    stroke-width: 0px;
+    stroke: currentColor;
+  }
+  &--is-open {
+    background-color: darken($c-brand, 5%);
+    border-radius: $border-radius-1;
+    .menu-button {
+      &__svg {
+        transform: scale(.5);
+      }
+      &__bar {
+        stroke-width: 2px;
+        transition-delay: 50ms;
+        &--top {
+          transform: rotate(45deg) translate(5%, -300%);
+          transform-origin: top left;
+        }
+        &--middle {
+          opacity: 0;
+          transform: scale(.5);
+          transform-origin: center center;
+        }
+        &--bottom {
+          transform: rotate(-45deg) translate(5%, 300%);
+          transform-origin: bottom left;
+        }
+      }
+    }
+  }
 }
 
 .logo-svg {

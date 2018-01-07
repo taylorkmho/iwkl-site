@@ -25,6 +25,6 @@
       <div class="top-bar__items copy copy--light">
         <squarespace:navigation navigationId="primary-nav" template="navigation"/>
       </div>
-      <menu-button v-on:toggle-menu="toggleMenu" v-show="isMobile"></menu-button>
+      <menu-button :is-open="isOpen" v-on:toggle-menu="toggleMenu" v-show="isMobile"></menu-button>
     </div>
   </header>

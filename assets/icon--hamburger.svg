@@ -1,1 +1,7 @@
-<svg width="30" height="20" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><title>Shape</title><path d="M0 0h30v1.905H0V0zm0 9.524h30v1.905H0V9.523zm0 8.57h30V20H0v-1.905z" fill="#FFF" fill-rule="evenodd"/></svg>
+<svg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+  <g fill-rule="evenodd">
+    <rect y="14" width="30" height="2" class="menu-button__bar menu-button__bar--top"/>
+    <rect y="21" width="30" height="2" class="menu-button__bar menu-button__bar--middle"/>
+    <rect y="7" width="30" height="2" class="menu-button__bar menu-button__bar--bottom"/>
+  </g>
+</svg>

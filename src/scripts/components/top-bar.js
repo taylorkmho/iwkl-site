@@ -11,7 +11,18 @@ export class TopBarMenu {
     }
 
     const MenuButton = {
-      template: `<button v-on:click="toggleMenu" class="menu-button">MENU</button>`,
+      template: `
+        <button v-on:click="toggleMenu" :class="{ 'menu-button': true, 'menu-button--is-open': isOpen }">
+          <svg class="menu-button__svg" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+            <g fill-rule="evenodd">
+              <rect y="7" width="30" height="2" class="menu-button__bar menu-button__bar--top"/>
+              <rect y="14" width="30" height="2" class="menu-button__bar menu-button__bar--middle"/>
+              <rect y="21" width="30" height="2" class="menu-button__bar menu-button__bar--bottom"/>
+            </g>
+          </svg>
+        </button>
+      `,
+      props: ['isOpen'],
       methods: {
         toggleMenu: function() {
           this.$emit('toggle-menu');
@@ -36,23 +47,13 @@ export class TopBarMenu {
         handleResize: function() {
           this.isMobile = window.matchMedia(MEDIA_QUERY).matches;
           if (this.isMobile) {
-            this.setToMobile();
+            this.$el.classList.add(`${TARGET_CLASS}--mobile`);
           } else {
-            this.setToDesktop();
+            this.$el.classList.remove(`${TARGET_CLASS}--mobile`);
           }
-        },
-        setToDesktop: function() {
-          this.$el.classList.remove(`${TARGET_CLASS}--mobile`);
-        },
-        setToMobile: function() {
-          this.$el.classList.add(`${TARGET_CLASS}--mobile`);
         },
         toggleMenu: function(e) {
-          if (this.isOpen) {
-            this.$el.classList.remove(`${TARGET_CLASS}--active`);
-          } else {
-            this.$el.classList.add(`${TARGET_CLASS}--active`);
-          }
+          this.$el.classList.toggle(`${TARGET_CLASS}--active`);
           this.isOpen = !this.isOpen;
         }
       }
