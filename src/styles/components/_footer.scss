@@ -16,6 +16,11 @@
     margin-bottom: $gutter;
     a {
       margin-right: $gutter;
+      font-size: .75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #fff;
+      text-decoration: none;
     }
   }
   &__copyright {

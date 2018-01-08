@@ -9,7 +9,7 @@
         {.end}
       </a>
     {.end}
-    <div class="footer__nav copy copy--light copy--small">
+    <div class="footer__nav">
       <squarespace:navigation navigationId="primary-nav" template="navigation" />
     </div>
     <div class="footer__copyright copy copy--light copy--small">

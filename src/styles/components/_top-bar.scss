@@ -34,6 +34,9 @@ $nav-transition-dur: 250ms;
   }
 
   &__items {
+    a {
+      color: #fff;
+    }
     html:not(.js) & {
       flex-grow: 1;
       text-align: right;
@@ -63,6 +66,7 @@ $nav-transition-dur: 250ms;
         }
         a {
           display: inline-block;
+          border-bottom: 2px solid darken($c-red, 32.5%);
           font-size: 1.5rem;
           text-decoration: none;
           margin-bottom: $gutter;
@@ -151,7 +155,6 @@ $nav-transition-dur: 250ms;
       font-size: .75rem;
       letter-spacing: 1px;
       text-transform: uppercase;
-      color: #fff;
       text-decoration: none;
       &:last-of-type {
         margin-right: 0;

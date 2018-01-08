@@ -24,8 +24,8 @@
 
 <div class="home-section home-section--yellow home-section--y-small" style="background-image: url('/assets/bg--yellow.jpg');">
     <div class="home-columns home-columns--blog container">
-      <div class="copy copy--large copy--light copy--antialiased">
-        <h2>Latest News</h2>
+      <div class="home-columns__copy copy copy--large copy--light copy--antialiased">
+        <h2 class="home-columns__title">Latest News</h2>
       </div>
       <div class="blog-index">
       <squarespace:query collection="blog-and-news" limit="3">
@@ -35,7 +35,7 @@
               <img src="{assetUrl}?format=500w">
             </a>
             <div class="copy copy--light copy--antialiased">
-              <h2 class="blog-index-post__headline">{title|truncate 64}</h2>
+              <h2 class="blog-index-post__headline"><a href="{fullUrl}">{title|truncate 64}</a></h2>
               <p class="blog-index-post__excerpt">{body|safe|truncate 200}</p>
             </div>
             <a class="blog-index-post__cta button button--filled-white" href="{fullUrl}">READ MORE</a>

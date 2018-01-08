@@ -99,6 +99,7 @@
     }
     .video-caption-wrapper {
       text-align: center;
+      text-shadow: 0 2px 8px rgba(#000, .375);
       p {
         font-size: 1.25rem;
         letter-spacing: 1px;
@@ -193,6 +194,10 @@
 }
 
 .home-columns {
+  &__copy {
+    position: relative;
+    text-align: center;
+  }
   &--map {
     .col,
     .sqs-col {
