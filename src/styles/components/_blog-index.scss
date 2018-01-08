@@ -10,6 +10,8 @@
 
 @media screen and (min-width: $container-query) {
   .blog-index {
+    flex-wrap: nowrap;
+    justify-content: space-between;
     &__post {
       width: calc(100% / 3);
       margin-right: ($gutter * 2);
