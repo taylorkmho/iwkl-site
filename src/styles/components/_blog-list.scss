@@ -27,17 +27,20 @@
   }
   &__headline {
     margin: 0 0 $gutter;
+    font-size: 1.75em;
+    line-height: 1.5;
+    font-weight: 600;
   }
   &__subline {
     display: flex;
     align-items: center;
     margin: 0 0 $gutter;
-  }
-  &__country {
-    &:after {
-      content: "•";
-      margin: 0 $gutter;
-      opacity: .25;
+    > * {
+      &:not(:first-child):before {
+        content: "•";
+        margin: 0 $gutter;
+        opacity: .25;
+      }
     }
   }
   &__date {
@@ -46,6 +49,20 @@
     font-size: .875rem;
     letter-spacing: 1px;
   }
+  &__body {
+    margin: $gutter 0;
+  }
+  &__filters {
+    display: flex;
+    align-items: center;
+    > * {
+      &:not(:first-child):before {
+        content: "•";
+        margin: 0 $gutter;
+        opacity: .25;
+      }
+    }
+  }
 }
 
 @media screen and (min-width: $container-query) {
@@ -53,9 +70,6 @@
     margin-bottom: ($gutter*4);
     &__image {
       margin-left: ($gutter*2);
-    }
-    &__copy {
-      margin-top: ($gutter*2);
     }
   }
 }

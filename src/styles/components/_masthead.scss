@@ -24,10 +24,17 @@
   &__meta {
     @extend .container--reading;
     margin-top: $gutter;
-    time {
-      &:after {
-        content: " //"
-      }
+  }
+  &__categories {
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    &:before {
+      content: " //"
+    }
+    li {
+      display: inline-block;
     }
   }
   &__content {
@@ -70,6 +77,7 @@
         &__bg {
           background-color: $c-var;
           background-blend-mode: initial;
+          background-attachment: fixed;
         }
       }
     }

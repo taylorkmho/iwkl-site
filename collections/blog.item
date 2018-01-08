@@ -7,8 +7,7 @@
         <div class="masthead__copy copy copy--light copy--large copy--antialiased">
           <h1 class="masthead__title" data-content-field="title">{title}</h2>
           <div class="masthead__meta h3">
-            <time datetime="{addedOn|date %F}" pubdate>{addedOn|date %b %G}</time>
-            {.section categories}{.repeated section @}<a href="{collection.fullUrl}?category={@|url-encode}" class="link link--body">{@}</a>{.alternates with},{.end}{.end}
+            <time datetime="{addedOn|date %F}" pubdate>{addedOn|date %B %G}</time>
           </div>
         </div>
         <div class="masthead__thumbnail">
@@ -16,16 +15,38 @@
         </div>
       </div>
     </header>
-  {.or}
-    {# TODO: implement non-feature image header}
   {.end}
-  <article class="blog-post__content container copy copy--large {@|item-classes}" id="article-{id}">
-    {body}
+  <article class="blog-post__content {@|item-classes}" id="article-{id}">
+    <main class="container copy copy--large">
+      {body}
+    </main>
     <footer class="blog-item-footer">
-      <div class="footer-meta">
-        {.section author}<a href="{collection.fullUrl}?author={author.id}">{displayName}</a>{.end}
-        {.section categories}{.repeated section @}<a href="{collection.fullUrl}?category={@|url-encode}" class="link link--body">{@}</a>{.alternates with},{.end}{.end}
-        {.section tags}{.repeated section @}<a href="{collection.fullUrl}?tag={@|url-encode}" rel="tag">{@}</a>{.alternates with}, {.end}{.end}
+      <div class="container">
+        <div class="blog-item-footer__copy copy">
+          <a href="/blog-and-news">Back to blog</a>
+          <h2 class="blog-item-footer__title">{title}</h2>
+          <time class="blog-item-footer__date" datetime="{addedOn|date %F}" pubdate>{addedOn|date %B %e, %Y}</time>
+        </div>
+        {.section categories}
+          <ul class="blog-item-footer__categories pill-list pill-list--centered">
+            <li class="pill-list__label">Found in categories: </li>
+            {.repeated section @}
+              <li class="pill-list__item pill-list__item--link pill-list__item--red">
+                <a href="{collection.fullUrl}?category={@|url-encode}" title="All posts in {@} category">{@}</a>
+              </li>
+            {.end}
+          </ul>
+        {.end}
+        {.section tags}
+          <ul class="blog-item-footer__tags hashtag-list hashtag-list--centered">
+            <li class="hashtag-list__label">With tags: </li>
+            {.repeated section @}
+              <li class="hashtag-list__item">
+                <a href="{collection.fullUrl}?tag={@|url-encode}" rel="tag" title="All posts tagged with #{@|url-encode}">{@|url-encode}</a>
+              </li>
+            {.end}
+          </ul>
+        {.end}
       </div>
     </footer>
 

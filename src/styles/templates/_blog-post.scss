@@ -5,3 +5,17 @@
     }
   }
 }
+
+.blog-item-footer {
+  padding: ($gutter*2) 0 ($gutter*3);
+  background-color: #eee;
+  text-align: center;
+  &__copy,
+  &__date {
+    margin-bottom: $gutter !important;
+  }
+  &__categories,
+  &__title {
+    margin-bottom: ($gutter/2) !important;
+  }
+}

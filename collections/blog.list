@@ -6,12 +6,15 @@
         <div class="masthead__meta h3">
           {.section categoryFilter}
             All Posts in &ldquo;<span class="category-name">{@}</span>&rdquo;
+            <a href="/blog-and-news">&times;</a>
           {.end}
           {.section tagFilter}
             All Posts tagged &ldquo;<span class="category-name">{@}</span>&rdquo;
+            <a href="/blog-and-news">&times;</a>
           {.end}
           {.if authorFilter}
-            <p>All by {author.displayName}</p>
+            All Posts by {author.displayName}
+            <a href="/blog-and-news">&times;</a>
           {.end}
         </h3>
     </div>
@@ -23,28 +26,42 @@
     {.repeated section items}
       <article class="blog-list-item {.main-image?}blog-list-item--has-main-image {.end}{@|item-classes}" id="article-{id}">
         <main class="blog-list-item__copy">
-          <h1 class="blog-list-item__headline copy" data-content-field="title" >
-            <a href="{fullUrl}">
-              {title}
-            </a>
-          </h1>
+          <div class="copy copy--large">
+            <p class="blog-list-item__headline" data-content-field="title" >
+              <a href="{fullUrl}">{title}</a>
+            </p>
+          </div>
           <div class="blog-list-item__subline">
+            <a href="{fullUrl}" class="button button--filled-red">VIEW POST</a>
+            <time class="blog-list-item__date" datetime="{addedOn|date %F}" pubdate>{addedOn|date %b %Y}</time>
+          </div>
+          <div class="blog-list-item__body">
+            {.excerpt?}
+              {excerpt}
+            {.or}
+              {body|safe|truncate 240}
+            {.end}
+          </div>
+          <div class="blog-list-item__filters">
             {.section categories}
-              <ul class="blog-list-item__country pill-list">
+              <ul class="pill-list">
                 {.repeated section @}
-                  <li class="pill-list__item pill-list__item--green">
-                    <a href="{collection.fullUrl}?category={@|url-encode}">{@}</a>
+                  <li class="pill-list__item pill-list__item--link pill-list__item--hollow">
+                    <a href="{collection.fullUrl}?category={@|url-encode}" title="All posts in {@} category">{@}</a>
                   </li>
                 {.end}
               </ul>
             {.end}
-            <time class="blog-list-item__date" datetime="{addedOn|date %F}" pubdate>{addedOn|date %b %e}</time>
+            {.section tags}
+              <ul class="hashtag-list hashtag-list--small">
+                {.repeated section @}
+                  <li class="hashtag-list__item">
+                    <a href="{collection.fullUrl}?tag={@|url-encode}" rel="tag" title="All posts tagged with #{@|url-encode}">{@|url-encode}</a>
+                  </li>
+                {.end}
+              </ul>
+            {.end}
           </div>
-          {.excerpt?}
-            <div>{excerpt}</div>
-          {.or}
-            <div>{body|safe|truncate 320}</div>
-          {.end}
       </main>
       {.main-image?}
         <aside class="blog-list-item__image">

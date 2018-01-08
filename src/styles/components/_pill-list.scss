@@ -1,15 +1,23 @@
 .pill-list {
   display: flex;
+  align-items: center;
   padding: 0;
   margin: 0;
   list-style: none;
+  &--centered {
+    justify-content: center;
+  }
+  &__label {
+    font-size: .75rem;
+    margin-right: ($gutter/2);
+  }
   &__item {
     @extend .copy--nowrap;
     background: $c-blue;
     color: #fff;
-    font-size: .75rem;
+    font-size: .875rem;
     letter-spacing: 1px;
-    padding: ($gutter/4) ($gutter);
+    padding: ($gutter/4) $gutter;
     border-radius: 20px;
     margin-right: ($gutter/2);
     &:last-of-type {
@@ -19,15 +27,41 @@
       @extend .copy--antialiased;
       color: inherit;
       text-decoration: none;
+      background-image: none !important;
+      transform: all 150ms ease-out;
+      transition-property: border, background;
     }
     &--small {
       font-size: .6275rem;
       padding: ($gutter/8) ($gutter/2);
       letter-spacing: 1px;
     }
+    &--link {
+      padding: 0;
+      &:hover {
+        background: darken($c-blue, 5%);
+      }
+      a {
+        display: block;
+        padding: ($gutter/4) $gutter;
+      }
+    }
+    &--hollow {
+      background-color: transparent !important;
+      border: 1px solid rgba(#000, .125);
+      color: $c-body;
+      &:hover {
+        border-color: rgba(#000, .25);
+      }
+    }
     @each $color, $c-var in $map-colors {
       &--#{$color} {
         background: $c-var;
+        &.pill-list__item--link {
+          &:hover {
+            background: darken($c-var, 5%);
+          }
+        }
       }
     }
   }

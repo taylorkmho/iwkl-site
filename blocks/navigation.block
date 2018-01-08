@@ -1,12 +1,9 @@
 <nav data-content-field="navigation-primary-nav">
   {.repeated section items}
-    {.section collection}
-      <a href="{fullUrl}">{navigationTitle}</a>
-    {.end}
     {.section externalLink}
-      <a href="{url}"{.section newWindow} target="_blank"{.end}>
-        {title}
-      </a>
+      <a href="{url}" class="top-bar__link{.section active} top-bar__link--active{.end}" {.section newWindow}target="_blank"{.end}>{title}</a>
+    {.or}
+      <a href="{collection.fullUrl}" class="top-bar__link{.section active} top-bar__link--active{.end}">{collection.navigationTitle}</a>
     {.end}
   {.end}
 </nav>

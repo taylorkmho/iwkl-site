@@ -22,7 +22,7 @@
           {.end}
         </a>
       {.end}
-      <div class="top-bar__items copy copy--light">
+      <div class="top-bar__items">
         <squarespace:navigation navigationId="primary-nav" template="navigation"/>
       </div>
       <menu-button :is-open="isOpen" v-on:toggle-menu="toggleMenu" v-show="isMobile"></menu-button>
