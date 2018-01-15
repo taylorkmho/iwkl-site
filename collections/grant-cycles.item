@@ -1,23 +1,101 @@
-{.section item}
+<header class="masthead masthead--blue masthead--overlap-btm">
+  <div class="masthead__bg" style="background-image: url('/assets/bg--blue.jpg');"></div>
+  <div class="masthead__content container">
+    <div class="masthead__copy copy copy--light copy--large copy--antialiased">
+      <h1 class="masthead__title" data-content-field="title">{collection.title}</h2>
+      <div class="masthead__meta h3">
+        <squarespace:block-field id="intro" label="Grant Partners intro" columns="1" lock-layout="true" />
+      </div>
+    </div>
+  </div>
+</header>
+{#
+  Map solution:
+    - Build array with 1-8 grant cycles
+    - Generate map points using array
+}
+<div id="grant-map">
+  <div class="container">
+    <div class="map">
+      <div class="map__loader">
+        <progress-bar ref="loader"></progress-bar>
+      </div>
+      <google-map
+        :center="center"
+        :options="options"
+        :zoom="2"
+        @click="handlePopupClose"
+        @dragstart="handlePopupClose"
+        @tilesloaded.once="handleLoaded"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+        ref="gMap">
+        <google-marker
+          v-for="(m,i) in markers"
+          :clickable="true"
+          :key="i"
+          :icon="m.icon"
+          :position="m.position"
+          :title="m.title"
+          @click="handleMarkerClick(m, i)"
+          >
+        </google-marker>
+      </google-map>
+      <div class="map__popup">
+        <grant-map-popup
+          :country="popup.country"
+          :grant-cycle-title="popup.grantCycleTitle"
+          :is-active="popup.isActive"
+          :is-visible="popup.isVisible"
+          :status-message="popup.statusMessage"
+          :title="popup.title">
+        </grant-map-popup>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <!--WRAPPER-->
+{#
+  List solution:
+    - Build a layout that lists up to 8x grant cycles.
+    - If they build beyond 8 cycles, they need to reach
+      out and we can expand on the website.
+}
+<squarespace:query collection="grant-cycle-8">
+  {@|apply grant-cycle-list.block}
+</squarespace:query>
 
-  <article id="post-{id}" class="{@|item-classes}" data-item-id="{id}">
+<squarespace:query collection="grant-cycle-7">
+  {@|apply grant-cycle-list.block}
+</squarespace:query>
 
-    <!--POST TILE-->
+<squarespace:query collection="grant-cycle-6">
+  {@|apply grant-cycle-list.block}
+</squarespace:query>
 
-    <h1 class="title" data-content-field="title">
-      {.passthrough?}
-        <a href="{sourceUrl}" target="_blank">{title}</a>
-      {.or}
-        <a href="{fullUrl}">{title}</a>
-      {.end}
-    </h1>
+<squarespace:query collection="grant-cycle-5">
+  {@|apply grant-cycle-list.block}
+</squarespace:query>
 
-    <!--MAIN CONTENT-->
+<squarespace:query collection="grant-cycle-4">
+  {@|apply grant-cycle-list.block}
+</squarespace:query>
 
-    {body}
+<squarespace:query collection="grant-cycle-3">
+  {@|apply grant-cycle-list.block}
+</squarespace:query>
 
-  </article>
+<squarespace:query collection="grant-cycle-2">
+  {@|apply grant-cycle-list.block}
+</squarespace:query>
 
-{.end}
+<squarespace:query collection="grant-cycle-1">
+  {@|apply grant-cycle-list.block}
+</squarespace:query>
+
+<footer class="grant-application">
+  <div class="grant-application__container container">
+    <div class="copy copy--light copy--large copy--antialiased">
+      <squarespace:block-field id="application-process" label="Grant Application Process" columns="12" lock-layout="true" />
+    </div>
+  </div>
+</footer>

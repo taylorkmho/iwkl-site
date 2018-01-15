@@ -1,34 +1,39 @@
-{.section collection}
-  <h4>{title}</h4>
-{.end}
+<header class="masthead masthead--blue">
+  <div class="masthead__bg" style="background-image: url('/assets/bg--blue.jpg');"></div>
+  <div class="masthead__content container">
+    <div class="masthead__copy copy copy--light copy--large copy--antialiased">
+      <h1 class="masthead__title" data-content-field="title">{collection.title}</h2>
+    </div>
+  </div>
+</header>
 
-<ul>
-  {.repeated section items}
-    <li><code><pre>{@|json-pretty}</pre></code></li>
-  {.end}
-</ul>
-
-{##BEGIN}
-{.section collection}
-  {title}
-  <ol>
-    {.repeated section items}
-      <li>{@|json-pretty}</li>
-    {.end}
-  </ol>
-  <!-- <squarespace:category collection="{urlId}">
-    {.if categories}
-      <div class="category-wrapper">
-        <span class="category">
-          {.repeated section categories}
-            <p>{name}</p>
-            {fullUrl}
-          {.end}
-        </span>
+{.if items}
+  <section class="grant-list grant-list--blue">
+    <div class="grant-list__container container">
+      {.section collection}
+      <div class="grant-list__copy">
+        <h2 class="grant-list__title">{title}</h2>
+        {.if description}
+          <div class="copy--large">
+            <p class="grant-list__description">{description}</p>
+          </div>
+        {.end}
       </div>
-    {.end}
-  </squarespace:category> -->
+      {.end}
+      <div class="grant-list__list">
+        {.repeated section items}
+          <div class="grant-list-item copy--light">
+            <header class="grant-list-item__image" style="background-image: url({assetUrl}?format=500w);"></header>
+            <main class="grant-list-item__copy copy--antialiased">
+              <h5 class="grant-list-item__label">GRANT NAME</h5>
+              <p class="grant-list-item__title">{title}</p>
+              <h5 class="grant-list-item__label">COUNTRIES</h5>
+              <span class="grant-list-item__country">{customContent.country}</span>
+            </main>
+            <grant-modal-trigger asset-url="{assetUrl}" url="{fullUrl}"></grant-modal-trigger>
+          </div>
+        {.end}
+      </div>
+    </div>
+  </section>
 {.end}
-
-
-{END##}
