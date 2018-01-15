@@ -13,13 +13,10 @@ $z-grant-list-item: 500;
     border-right: none;
 
     @each $color, $c-var in $map-colors {
-      $i: index(($map-colors), ($color $c-var)) + 1;
+      $i: index(($map-colors), ($color $c-var));
       .grant-list:nth-of-type(4n+#{$i}) & {
         border-color: $c-var;
       }
-    }
-    .grant-list--blue & {
-      border-color: $c-blue;
     }
 
   }
@@ -102,7 +99,7 @@ $z-grant-list-item: 500;
   }
 
   @each $color, $c-var in $map-colors {
-    $i: index(($map-colors), ($color $c-var)) + 1;
+    $i: index(($map-colors), ($color $c-var));
     .grant-list:nth-of-type(4n+#{$i}) & {
       background-color: $c-var;
       .grant-list-item__image {
@@ -114,19 +111,6 @@ $z-grant-list-item: 500;
       .grant-list-item__trigger:hover {
         background-color: rgba($c-var, .5);
       }
-    }
-  }
-
-  .grant-list--blue & {
-    background-color: $c-blue;
-    .grant-list-item__image {
-      background-color: $c-blue;
-      &:after {
-        background-image: linear-gradient(to right bottom, $c-blue, rgba($c-blue, .7), rgba($c-blue, 0));
-      }
-    }
-    .grant-list-item__trigger:hover {
-      background-color: rgba($c-blue, .5);
     }
   }
 }

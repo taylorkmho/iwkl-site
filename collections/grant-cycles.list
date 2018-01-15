@@ -36,4 +36,11 @@
       </div>
     </div>
   </section>
+{.or}
+  <div class="container">
+    <div class="copy">
+      <h1>This cycle has no items.</h1>
+      <br/><br/>
+    </div>
+  </div>
 {.end}
