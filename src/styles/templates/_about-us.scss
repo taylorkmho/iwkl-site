@@ -11,9 +11,6 @@ $z-about-us: 500;
     .guiding-section {
       &__intro {
         h1 {
-          margin: 0 0 ($gutter/2);
-        }
-        h2, h3 {
           @extend .copy--antialiased;
           background-color: $c-red;
           color: #fff;
