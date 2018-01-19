@@ -1,5 +1,24 @@
 $z-about-us: 500;
 
+.about-us-splash {
+  &__copy,
+  &__logo {
+    display: inline-block;
+    float: left;
+  }
+  &__logo {
+    width: 100%;
+    max-width: 320px;
+    margin-left: ($gutter*2);
+    padding: 0 $gutter;
+  }
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
 .guiding-section {
   padding-top: ($gutter*2);
   padding-bottom: ($gutter*2);
@@ -112,7 +131,8 @@ $z-about-us: 500;
   .sqs-row {
     display: flex;
   }
-  .col.span-3 {
+  .col.span-3,
+  .sqs-col.sqs-col-3 {
     border-radius: $border-radius-2;
     box-shadow: $box-shadow-3;
     background-color: $c-red;
@@ -137,7 +157,8 @@ $z-about-us: 500;
     .sqs-row {
       flex-direction: column;
     }
-    .col.span-3 {
+    .col.span-3,
+    .sqs-col.sqs-col-3 {
       width: 100%;
       margin-bottom: $gutter;
     }
@@ -151,7 +172,8 @@ $z-about-us: 500;
       flex-wrap: wrap;
       justify-content: center;
     }
-    .col.span-3 {
+    .col.span-3,
+    .sqs-col.sqs-col-3 {
       width: 300px;
       margin-bottom: $gutter;
     }
@@ -167,7 +189,8 @@ $z-about-us: 500;
     .sqs-row {
       align-items: center;
     }
-    .col.span-3 {
+    .col.span-3,
+    .sqs-col.sqs-col-3 {
       &:last-of-type {
         margin-right: 0;
       }
