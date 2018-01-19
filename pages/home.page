@@ -1,12 +1,16 @@
-<div class="home-section home-section--red" style="background-image: url('/assets/bg--red.jpg');">
+<div class="home-section home-section--red home-section--top" style="background-image: url('/assets/bg--red.jpg');">
   <div class="splash container">
     <div class="splash__video tt-up heading copy copy--large copy--light copy--antialiased" data-controller="HomeVideoPlayer">
       <squarespace:block-field id="splash-video" label="Home video" columns="1" lock-layout="true" />
     </div>
   </div>
+  <a class="home-section__arrow" href="#home-section__anchor">
+    <img src="/assets/icon--arrow-down.svg">
+  </a>
 </div>
 
 <div class="home-section home-section--green" style="background-image: url('/assets/bg--green.jpg');">
+  <div class="home-section__anchor" id="home-section__anchor"></div>
   <div class="home-columns container">
     <div class="copy copy--large copy--light copy--antialiased">
       <squarespace:block-field id="green-section" label="Text + Gallery" columns="12" lock-layout="true" />
