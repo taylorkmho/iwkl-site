@@ -1,8 +1,8 @@
 .masthead {
   $header-z: 900;
   position: relative;
-  padding-top: 6rem;
-  margin-bottom: ($gutter * 2);
+  padding-top: ($gutter * 2);
+  margin-bottom: ($gutter * 3);
   &__bg {
     position: absolute;
     top: 0;
@@ -91,7 +91,7 @@
 
 @media screen and (min-width: $mobile-query) {
   .masthead {
-    margin-bottom: ($gutter * 4);
+    padding-top: ($gutter * 10);
     &--overlap-btm {
       padding-bottom: ($gutter*8);
       margin-bottom: (-$gutter*8);
