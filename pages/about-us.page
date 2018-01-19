@@ -20,6 +20,12 @@
   </div>
 </div>
 
+<div class="about-us-data">
+  <div class="about-us-data__container container">
+    <squarespace:block-field id="about-us-data" label="About Us – Data" columns="12" />
+  </div>
+</div>
+
 <div class="about-us-gallery about-us-gallery--top">
   <div class="about-us-gallery__container container">
     <squarespace:block-field id="about-us-gallery" label="About Us gallery" columns="12" lock-layout="true" />
